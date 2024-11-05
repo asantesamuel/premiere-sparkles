@@ -1,8 +1,8 @@
 "use client";
 const top = () => {
   return (
-    <div>
-      <main className=" h-[70px] w-full bg-black text-mygold font-family:inter flex justify-center items-center text-[7px] md:text-[12px] ">
+    <div className=" ">
+      <main className="  h-[70px] w-full bg-black text-mygold font-family:inter flex justify-center items-center text-[7px] md:text-[12px] ">
         <div className="flex  justify-center h-full items-center   ">
           <div className="flex items-center justify-between h-full -ml-3">
             <div className="m-1">
