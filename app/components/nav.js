@@ -69,7 +69,7 @@ const nav = () => {
                   type="text"
                   placeholder="search"
                   aria-label="search"
-                  className="w-[250px] bg-transparent rounded-none p-2 h-[70px]border-none  outline-none  "
+                  className="search-input w-[250px] bg-transparent rounded-none p-2 h-[70px]border-none  outline-none  "
                 />
               </div>
             </div>

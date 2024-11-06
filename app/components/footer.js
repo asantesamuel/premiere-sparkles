@@ -146,7 +146,7 @@ const footer = () => {
                   <input
                     type="text"
                     placeholder="Name"
-                    className="w-[300px] h-[40px] border-2 p-4 border-slate-200 outline-none "
+                    className="  w-[300px] h-[40px] border-2 p-4 border-slate-200 outline-none "
                   />
                 </div>
                 <div>
