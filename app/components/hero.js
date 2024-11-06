@@ -14,10 +14,10 @@ const Hero = () => {
         </h6>
         <div className="flex flex-col justify-center items-center   md:flex md:flex-row md:space-x-8 md:justify-start">
           {" "}
-          <button className="bg-mypurple text-white text-xl  px-8 py-4 mt-4  w-[260px]">
+          <button className="bg-mypurple text-white text-xl  px-8 py-4 mt-4  w-[260px] hover:bg-opacity-80 ">
             See our Services
           </button>
-          <button className="bg-white text-black text-xl  px-8 py-4 mt-4 w-[260px]">
+          <button className="bg-white text-black text-xl  px-8 py-4 mt-4 w-[260px] hover:bg-purple-100">
             Book an appointment
           </button>
         </div>

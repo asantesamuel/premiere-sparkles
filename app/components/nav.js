@@ -35,17 +35,17 @@ const nav = () => {
                 </Link>
               </div>{" "}
               <div>
-                <Link href="/" className="hover:text-mygold">
+                <Link href="/packages" className="hover:text-mygold">
                   Packages
                 </Link>
               </div>{" "}
               <div>
-                <Link href="/" className="hover:text-mygold">
+                <Link href="/about" className="hover:text-mygold">
                   About Us
                 </Link>
               </div>{" "}
               <div>
-                <Link href="/" className="hover:text-mygold">
+                <Link href="/location" className="hover:text-mygold">
                   Our Location
                 </Link>
               </div>
@@ -184,17 +184,17 @@ const nav = () => {
                   </Link>
                 </div>{" "}
                 <div>
-                  <Link href="/" className="hover:text-mygold">
+                  <Link href="/packagess" className="hover:text-mygold">
                     Packages
                   </Link>
                 </div>{" "}
                 <div>
-                  <Link href="/" className="hover:text-mygold">
+                  <Link href="/about" className="hover:text-mygold">
                     About Us
                   </Link>
                 </div>{" "}
                 <div>
-                  <Link href="/" className="hover:text-mygold">
+                  <Link href="/location" className="hover:text-mygold">
                     Our Location
                   </Link>
                 </div>
