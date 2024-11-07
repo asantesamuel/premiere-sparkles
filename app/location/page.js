@@ -1,7 +1,85 @@
 import React from "react";
+import BackButton from "../components/backButton";
+import Map from "../components/maps";
+import Image from "next/image";
 
 const page = () => {
-  return <div>Welcome to Our Location</div>;
+  return (
+    <div>
+      <BackButton />
+      <div className="w-full h-[100px] ">
+        <h1 className=" text-[32px] text-center font-bold md:text-[60px] ">
+          Our Locations
+        </h1>
+      </div>
+
+      <div className="flex justify-center items-center w-full p-10 ">
+        <div className="bg-mylightpurple lg:h-[450px] lg:grid lg:grid-cols-5 xl:w-[1100px] md:w-[500x]">
+          {/* <!-- 1st col --> */}
+          <div className="col-span-3 p-2 w-[500px] md:p-8 space-y-2 md:space-y-8 lg:w-[640px] md:h-[450px]">
+            <div className=" h-[40px] w-[450px] text-md md:h-[80px] md:w-full flex  justify-start items-center md:text-[32px] font-medium">
+              <h1>Dzorwulu Ebony Junction</h1>
+            </div>
+            <div className=" flex flex-col justify-start w-[400px] space-y-4 h-full ">
+              <div className="w-[500px] h-[50px]  flex justify-start items-center space-x-4">
+                <div>
+                  <Image
+                    src="/alarm.svg"
+                    alt="x-black"
+                    width={30}
+                    height={30}
+                  />
+                </div>
+                <div className="w-2/3">
+                  <h1>
+                    Mon to Fri 9am -6pm Sat 8.30am - 6pm   Sunday 12.30pm - 6pm
+                  </h1>
+                </div>
+              </div>
+              <div className="w-[500px] h-[50px]  flex justify-start items-center space-x-4">
+                <div>
+                  <Image
+                    src="/map.svg"
+                    alt="map-black"
+                    width={30}
+                    height={30}
+                  />
+                </div>
+                <div className="w-2/3">
+                  <h1>
+                    Address: 39 La Tebu Crescent, East Cantonments Accra, Ghana
+                  </h1>
+                </div>
+              </div>{" "}
+              <div className="w-[500px] h-[50px]  flex justify-start items-center space-x-4">
+                <div>
+                  <Image
+                    src="/phone.svg"
+                    alt="phone-black"
+                    width={30}
+                    height={30}
+                  />
+                </div>
+                <div className="">
+                  <h1>+233 24 947 5124| +233 50 000 3420 | +233 27 000 0000</h1>
+                </div>
+              </div>
+              <div className="w-[400px] md:w-[440px] h-[50px]  flex justify-start items-center space-x-4">
+                <button className="bg-mypurple w-[483px] lg:w-[full] text-white px-4 py-2">
+                  Book a service
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* <!-- 2nd col --> */}
+          <div className="col-span-2 ">
+            <Map />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default page;

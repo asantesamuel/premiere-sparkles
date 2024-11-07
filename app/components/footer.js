@@ -22,23 +22,24 @@ const footer = () => {
             </h1>
           </div>
           <div>
-            <div className="w-[400px] h-[200px] bg-white flex flex-col space-y-2 justify-center items-center md:w-[800px]">
-              <div className="flex items-start w-[320px] md:w-[610px]">
+            <div className="w-[300px] h-[200px] bg-white flex flex-col space-y-2 justify-center items-center md:w-[800px]">
+              <div className="flex justify-center flex-col  sm:items-start w-[200] md:w-[610px]">
                 <label className="text-[12px]  text-slate-700 md:text-[20px]">
                   Receive our news and special offers
                 </label>
-              </div>
-              <div>
-                <div className="flex justify-between w-[320px] md:w-[610px] ">
-                  {" "}
-                  <input
-                    type="text"
-                    placeholder="Enter your email"
-                    className="w-[200px] h-[30px] border-2 p-4 border-slate-200 outline-none md:w-[400px] md:h-[40px]"
-                  />
-                  <button className="w-[100px] h-[35px] bg-mypurple text-white md:w-[200px] md:h-[40px] hover:bg-opacity-80">
-                    Subscribe
-                  </button>
+
+                <div>
+                  <div className="flex flex-col md:flex-row md:space-y-4 justify-between w-[250px] md:w-[610px] ">
+                    {" "}
+                    <input
+                      type="text"
+                      placeholder="Enter your email"
+                      className="w-[200px] h-[30px] border-2 p-4 border-slate-200 outline-none md:w-[400px] md:h-[40px]"
+                    />
+                    <button className="w-[100px] h-[35px] bg-mypurple text-white md:w-[200px] md:h-[40px] hover:bg-opacity-80">
+                      Subscribe
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

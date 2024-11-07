@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const nav = () => {
+const Nav = () => {
   const [isClicked, setIsClicked] = useState(false);
   const togglenNav = () => {
     setIsClicked(!isClicked);
@@ -11,7 +11,7 @@ const nav = () => {
 
   return (
     <div>
-      <nav className=" bg-mypurple ">
+      <nav className=" bg-mypurple w-full  ">
         {" "}
         <div className="hidden xl:block w-full h-[70px]">
           <div className=" grid w-full grid-cols-12   text-white font-family:inter gap-8 p-2  xl:text-[14px]">
@@ -35,8 +35,12 @@ const nav = () => {
                 </Link>
               </div>{" "}
               <div>
-                <Link href="/packages" className="hover:text-mygold">
+                <Link href="/packagess" className="hover:text-mygold">
                   Packages
+                </Link>
+              </div>{" "}<div>
+                <Link href="/product" className="hover:text-mygold">
+                  Products
                 </Link>
               </div>{" "}
               <div>
@@ -229,4 +233,4 @@ const nav = () => {
   );
 };
 
-export default nav;
+export default Nav;
