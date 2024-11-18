@@ -10,16 +10,19 @@
 input::placeholder,
 textarea::placeholder {
   color: #5e5e5e; /* Change this to your desired color */
-  opacity: 1;  /* Optional: Make the placeholder fully opaque */
+  opacity: 1; /* Optional: Make the placeholder fully opaque */
 }
 
-.search-input::placeholder{
-    color: #ffffff; /* Change this to your desired color */
-  opacity: 1;  /* Optional: Make the placeholder fully opaque */
+.search-input::placeholder {
+  color: #ffffff; /* Change this to your desired color */
+  opacity: 1; /* Optional: Make the placeholder fully opaque */
 }
 
 @layer base {
   html {
     --font-family-sans: "Inter", sans-serif;
   }
+}
+.active {
+  @apply text-black;
 }

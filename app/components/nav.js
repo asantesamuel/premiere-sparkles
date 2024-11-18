@@ -2,12 +2,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Nav = () => {
   const [isClicked, setIsClicked] = useState(false);
   const togglenNav = () => {
     setIsClicked(!isClicked);
   };
+
+  const router = useRouter();
 
   return (
     <div>
@@ -25,9 +28,9 @@ const Nav = () => {
             <div className="flex justify-between col-span-4 mt-3 ">
               {" "}
               <div>
-                <Link href="/" className="hover:text-mygold">
-                  Home
-                </Link>
+                <div className={router.pathname === "/" ? "active" : ""}>
+                  <Link href="/">Home</Link>
+                </div>
               </div>{" "}
               <div>
                 <Link href="/works" className="hover:text-mygold">
@@ -38,7 +41,8 @@ const Nav = () => {
                 <Link href="/packagess" className="hover:text-mygold">
                   Packages
                 </Link>
-              </div>{" "}<div>
+              </div>{" "}
+              <div>
                 <Link href="/product" className="hover:text-mygold">
                   Products
                 </Link>
@@ -178,7 +182,11 @@ const Nav = () => {
               <div className=" space-y-2">
                 {" "}
                 <div>
-                  <Link href="/" className="hover:text-mygold">
+                  <Link
+                    className={router.pathname === "/" ? "active" : ""}
+                    href="/"
+                    // className="hover:text-mygold"
+                  >
                     Home
                   </Link>
                 </div>{" "}
@@ -190,6 +198,11 @@ const Nav = () => {
                 <div>
                   <Link href="/packagess" className="hover:text-mygold">
                     Packages
+                  </Link>
+                </div>{" "}
+                <div>
+                  <Link href="/product" className="hover:text-mygold">
+                    Products
                   </Link>
                 </div>{" "}
                 <div>

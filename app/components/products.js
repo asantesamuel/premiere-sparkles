@@ -19,8 +19,8 @@ const Products = () => {
             />
           </div>
           {/* <!-- 2nd col --> */}
-          <div className="col-span-3 flex  flex-col justify-center items-center text-center lg:text-left p-2 w-[200px] md:p-8 space-y-2 md:space-y-8 lg:w-[640px] md:h-[450px] ">
-            <h1>A Brief Summary Of The Product</h1>
+          <div className="col-span-3 flex  flex-col justify-center items-start text-center lg:text-left p-2 w-[200px] md:p-8 space-y-2 md:space-y-8 lg:w-[640px] md:h-[450px] ">
+            <h1 className="text-xl font-bold text-left">A Brief Summary Of The Product</h1>
             <h1>
               Lorem ipsum dolor sit amet consectetur. Et lacinia at penatibus
               pulvinar pretium scelerisque egestas. Cursus urna nisl turpis

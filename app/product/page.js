@@ -13,7 +13,7 @@ const page = () => {
             <h1 className="md:text-[70px] sm:h-[60px] text-[32px] font-bold  ">
               Products
             </h1>
-            <p className="text-[8px] text-center text-balance font-regular  w-[150px]  md:text-[18px]  ">
+            <p className="text-[8px] text-center text-balance font-regular  w-[350px]  md:text-[18px]  ">
               Quality products - The choice of professionals available to you
             </p>
           </div>

@@ -14,14 +14,14 @@ const page = () => {
       </div>
 
       <div className="flex justify-center items-center w-full p-10 ">
-        <div className="bg-mylightpurple lg:h-[450px] lg:grid lg:grid-cols-5 xl:w-[1100px] md:w-[500x]">
+        <div className="bg-mylightpurple flex flex-col w-[300px] md:flex md:flex-col md:w-[600px] xl:h-[450px] xl:grid xl:grid-cols-5 xl:w-[1100px] ">
           {/* <!-- 1st col --> */}
-          <div className="col-span-3 p-2 w-[500px] md:p-8 space-y-2 md:space-y-8 lg:w-[640px] md:h-[450px]">
-            <div className=" h-[40px] w-[450px] text-md md:h-[80px] md:w-full flex  justify-start items-center md:text-[32px] font-medium">
+          <div className="col-span-3 p-2  w-[350px] md:p-8 space-y-2 md:space-y-8 lg:w-[640px] md:h-[450px]">
+            <div className=" h-[40px] w-[350px] text-md md:h-[80px] md:w-full flex  justify-start items-center md:text-[32px] font-medium">
               <h1>Dzorwulu Ebony Junction</h1>
             </div>
-            <div className=" flex flex-col justify-start w-[400px] space-y-4 h-full ">
-              <div className="w-[500px] h-[50px]  flex justify-start items-center space-x-4">
+            <div className=" flex flex-col justify-start w-[350px] space-y-4 h-full ">
+              <div className="w-[350px] h-[50px]  flex justify-start items-center space-x-4">
                 <div>
                   <Image
                     src="/alarm.svg"
@@ -30,13 +30,13 @@ const page = () => {
                     height={30}
                   />
                 </div>
-                <div className="w-2/3">
-                  <h1>
+                <div className=" w-2/3">
+                  <h1 className="text-[12px] w-[250px] md:text-xl md:w-[400px]">
                     Mon to Fri 9am -6pm Sat 8.30am - 6pm   Sunday 12.30pm - 6pm
                   </h1>
                 </div>
               </div>
-              <div className="w-[500px] h-[50px]  flex justify-start items-center space-x-4">
+              <div className="w-[350px] h-[50px]  flex justify-start items-center space-x-4">
                 <div>
                   <Image
                     src="/map.svg"
@@ -46,12 +46,12 @@ const page = () => {
                   />
                 </div>
                 <div className="w-2/3">
-                  <h1>
+                  <h1 className="text-[12px] w-[250px] md:text-xl md:w-[400px]">
                     Address: 39 La Tebu Crescent, East Cantonments Accra, Ghana
                   </h1>
                 </div>
               </div>{" "}
-              <div className="w-[500px] h-[50px]  flex justify-start items-center space-x-4">
+              <div className="w-[350px] h-[50px]  flex justify-start items-center space-x-4">
                 <div>
                   <Image
                     src="/phone.svg"
@@ -61,11 +61,13 @@ const page = () => {
                   />
                 </div>
                 <div className="">
-                  <h1>+233 24 947 5124| +233 50 000 3420 | +233 27 000 0000</h1>
+                  <h1 className="text-[12px] w-[250px] md:text-xl md:w-[300px]">
+                    +233 24 947 5124| +233 50 000 3420 | +233 27 000 0000
+                  </h1>
                 </div>
               </div>
-              <div className="w-[400px] md:w-[440px] h-[50px]  flex justify-start items-center space-x-4">
-                <button className="bg-mypurple w-[483px] lg:w-[full] text-white px-4 py-2">
+              <div className=" flex justify-center items-center w-[300px] md:w-[440px] h-[50px]  md:flex md:justify-start md:items-center space-x-4">
+                <button className="bg-mypurple md:w-[483px] lg:w-[full] text-white px-4 py-2">
                   Book a service
                 </button>
               </div>
