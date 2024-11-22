@@ -29,12 +29,12 @@ const footer = () => {
                 </label>
 
                 <div>
-                  <div className="flex flex-col md:flex-row md:space-y-4 justify-between w-[250px] md:w-[610px] ">
+                  <div className="flex flex-col  md:flex-row md:space-y-4  justify-between w-[250px] md:w-[610px] ">
                     {" "}
                     <input
                       type="text"
                       placeholder="Enter your email"
-                      className="w-[200px] h-[30px] border-2 p-4 border-slate-200 outline-none md:w-[400px] md:h-[40px]"
+                      className="w-[200px] h-[30px] mt-4 border-2 p-4 border-slate-200 outline-none md:w-[400px] md:h-[40px]"
                     />
                     <button className="w-[100px] h-[35px] bg-mypurple text-white md:w-[200px] md:h-[40px] hover:bg-opacity-80">
                       Subscribe

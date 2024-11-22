@@ -23,7 +23,7 @@ const top = () => {
               </span>
             </div>
             <div>
-              <div> +233 24 947 5124 | +233 50 000 3420 | +233 27 000 0000</div>
+              <div> +233 50 319 2450 | +233 54 787 3650 </div>
             </div>
           </div>
 
@@ -45,7 +45,7 @@ const top = () => {
                 </svg>
               </span>
             </div>
-            <div> appointments@premiersparkle.com</div>
+            <div>queennetifaquaye@gmail.com</div>
           </div>
         </div>
       </main>
