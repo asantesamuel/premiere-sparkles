@@ -1,0 +1,112 @@
+{
+    "makeup": [
+        {
+            "type": "Soft Glam",
+            "price": ""
+        },
+        {
+            "type": "Full Glam",
+            "price": ""
+        },
+        {
+            "type": "Casual",
+            "price": ""
+        },
+        {
+            "type": "Photo Shoot",
+            "price": ""
+        },
+        {
+            "type": "Bridal",
+            "price": ""
+        }
+    ],
+    "nails": [
+        {
+            "type": "Acrylic Nails",
+            "price": ""
+        },
+        {
+            "type": "Acrylic Toes",
+            "price": ""
+        },
+        {
+            "type": "Gel Nails",
+            "price": ""
+        },
+        {
+            "type": "Gel Toes",
+            "price": ""
+        }
+    ],
+    "lashes": [
+        {
+            "type": "Classic",
+            "price": 120
+        },
+        {
+            "type": "Classic Cat Eye",
+            "price": 150
+        },
+        {
+            "type": "Hybrid",
+            "price": 180
+        },
+        {
+            "type": "Hybrid Cat Eye",
+            "price": 200
+        },
+        {
+            "type": "Wispy",
+            "price": 210
+        },
+        {
+            "type": "Volume",
+            "price": 260
+        },
+        {
+            "type": "Volume Cat Eye",
+            "price": 280
+        },
+        {
+            "type": "Mega",
+            "price": 350
+        }
+    ],
+    "wigs": [
+        {
+            "type": "Sewing",
+            "price": ""
+        },
+        {
+            "type": "Installation",
+            "price": ""
+        },
+        {
+            "type": "Styling",
+            "price": ""
+        },
+        {
+            "type": "Revamping",
+            "price": ""
+        }
+    ],
+    "pedicure": [
+        {
+            "type": "Regular Pedicure",
+            "price": 100
+        },
+        {
+            "type": "Signature Pedicure",
+            "price": 180
+        },
+        {
+            "type": "Deluxe Pedicure",
+            "price": 220
+        },
+        {
+            "type": "Jelly Pedicure",
+            "price": 270
+        }
+    ]
+}

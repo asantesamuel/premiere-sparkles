@@ -9,11 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@payloadcms/next": "^3.0.1",
+    "@payloadcms/richtext-lexical": "^3.0.1",
     "@react-google-maps/api": "^2.20.3",
     "@types/google.maps": "^3.58.1",
+    "graphql": "^16.9.0",
     "next": "15.0.2",
+    "payload": "^3.0.1",
     "react": "19.0.0-rc-02c0e824-20241028",
-    "react-dom": "19.0.0-rc-02c0e824-20241028"
+    "react-dom": "19.0.0-rc-02c0e824-20241028",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.26.0",

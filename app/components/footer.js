@@ -4,7 +4,7 @@ import Image from "next/image";
 const footer = () => {
   return (
     <div className="">
-      <div className="w-full h-[800px] ">
+      <div className="w-full h-[500px] ">
         <div className="bg-black h-1/5 flex justify-center items-center flex-col">
           <h1 className="text-white text-[14px] font-bold text-center md:text-3xl">
             We accept all major credit/debit cards, banks Transfer and Mobile
@@ -18,7 +18,7 @@ const footer = () => {
           <div>
             <h1 className=" text-[32px] text-center font-bold text-black ">
               {" "}
-              Let's Connect
+              Let&apos;s Connect
             </h1>
           </div>
           <div>
@@ -46,7 +46,7 @@ const footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center w-full p-10 ">
+      <div className="flex justify-center items-center w-full p-10 mb-[300px]">
         <div className=" w-full md:w-[1500px] flex justify-evenly itmes bg-center ">
           <div className=" flex flex-col space-y-10 items-start md:grid md:grid-cols-4 md:space-y-0">
             <div className=" flex justify-center">
@@ -95,7 +95,7 @@ const footer = () => {
               <div className="flex flex-col  md:space-y-2">
                 <div>
                   <h1 className=" text-black font-bold text-md">
-                    Let's stay Connected
+                    Let&apos;s Connect
                   </h1>
                 </div>
                 <div>

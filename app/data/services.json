@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "title": "Nails",
+    "price": 20,
+    "description": "Manicure and pedicure services.",
+    "location": "Main Salon"
+  },
+  {
+    "id": 2,
+    "title": "Makeup",
+    "price": 35,
+    "description": "Professional makeup application for any occasion.",
+    "location": "Makeup Room"
+  },
+  {
+    "id": 3,
+    "title": "Lash Extensions",
+    "price": 50,
+    "description": "Custom lash extensions to enhance your natural lashes.",
+    "location": "Lash Room"
+  },
+  {
+    "id": 4,
+    "title": "Pedicure",
+    "price": 25,
+    "description": "Relaxing foot and nail treatment.",
+    "location": "Pedicure Station"
+  },
+  {
+    "id": 5,
+    "title": "Wigs",
+    "price": 100,
+    "description": "High-quality wigs, installation, and styling.",
+    "location": "Wig Bar"
+  },
+  {
+    "id": 6,
+    "title": "Sew-in Installation and Styling",
+    "price": 80,
+    "description": "Professional sew-in installation and styling services.",
+    "location": "Hair Styling Station"
+  },
+  {
+    "id": 7,
+    "title": "Brow Trimming",
+    "price": 10,
+    "description": "Precise brow shaping and trimming.",
+    "location": "Brow Bar"
+  }
+]

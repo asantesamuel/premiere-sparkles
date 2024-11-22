@@ -18,7 +18,7 @@ const page = () => {
           {/* <!-- 1st col --> */}
           <div className="col-span-3 p-2  w-[350px] md:p-8 space-y-2 md:space-y-8 lg:w-[640px] md:h-[450px]">
             <div className=" h-[40px] w-[350px] text-md md:h-[80px] md:w-full flex  justify-start items-center md:text-[32px] font-medium">
-              <h1>Dzorwulu Ebony Junction</h1>
+              <h1>North Legon, Deer Street</h1>
             </div>
             <div className=" flex flex-col justify-start w-[350px] space-y-4 h-full ">
               <div className="w-[350px] h-[50px]  flex justify-start items-center space-x-4">
@@ -31,7 +31,7 @@ const page = () => {
                   />
                 </div>
                 <div className=" w-2/3">
-                  <h1 className="text-[12px] w-[250px] md:text-xl md:w-[400px]">
+                  <h1 className="text-[8px] w-[250px] md:text-xl md:w-[400px]">
                     Mon to Fri 9am -6pm Sat 8.30am - 6pm   Sunday 12.30pm - 6pm
                   </h1>
                 </div>
@@ -46,8 +46,8 @@ const page = () => {
                   />
                 </div>
                 <div className="w-2/3">
-                  <h1 className="text-[12px] w-[250px] md:text-xl md:w-[400px]">
-                    Address: 39 La Tebu Crescent, East Cantonments Accra, Ghana
+                  <h1 className="text-[8px] w-[250px] md:text-xl md:w-[400px]">
+                    Deer street 7,North Legon
                   </h1>
                 </div>
               </div>{" "}
@@ -61,8 +61,8 @@ const page = () => {
                   />
                 </div>
                 <div className="">
-                  <h1 className="text-[12px] w-[250px] md:text-xl md:w-[300px]">
-                    +233 24 947 5124| +233 50 000 3420 | +233 27 000 0000
+                  <h1 className="text-[8px] w-[250px] md:text-xl md:w-[300px]">
+                    +233 547873650 || +233 503192450
                   </h1>
                 </div>
               </div>

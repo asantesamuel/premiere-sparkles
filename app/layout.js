@@ -3,6 +3,7 @@ import "./globals.css";
 import Top from "./components/top";
 import Nav from "./components/nav";
 import Footer from "./components/footer";
+import { Inter } from "next/font/google";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -14,6 +15,7 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata = {
   title: "Create Next App",
@@ -23,8 +25,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={inter.className}>
         <div className="fixed w-full z-50 ">
           <Top />
           <Nav />

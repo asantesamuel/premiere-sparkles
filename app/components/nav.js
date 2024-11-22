@@ -4,6 +4,14 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import localFont from "next/font/local";
+
+// Font files can be colocated inside of `app`
+const myFont = localFont({
+  src: "../static-fonts/PlayfairDisplay-VariableFont_wght.ttf",
+  display: "swap",
+});
+
 const Nav = () => {
   const [isClicked, setIsClicked] = useState(false);
   const togglenNav = () => {
@@ -20,8 +28,8 @@ const Nav = () => {
           <div className=" grid w-full grid-cols-12   text-white font-family:inter gap-8 p-2  xl:text-[14px]">
             <div className="col-span-4 flex-shrink-0">
               {" "}
-              <div className="text-2xl font-extrabold mt-1.5">
-                Premiere Sparkle Saloon
+              <div className="text-2xl font-extrabold mt-1.5 ">
+                <div className={myFont.className}>Premiere Sparkle Saloon</div>
               </div>
             </div>
 
@@ -42,11 +50,11 @@ const Nav = () => {
                   Packages
                 </Link>
               </div>{" "}
-              <div>
+              {/* <div>
                 <Link href="/product" className="hover:text-mygold">
                   Products
                 </Link>
-              </div>{" "}
+              </div>{" "} */}
               <div>
                 <Link href="/about" className="hover:text-mygold">
                   About Us
@@ -200,11 +208,11 @@ const Nav = () => {
                     Packages
                   </Link>
                 </div>{" "}
-                <div>
+                {/* <div>
                   <Link href="/product" className="hover:text-mygold">
                     Products
                   </Link>
-                </div>{" "}
+                </div>{" "} */}
                 <div>
                   <Link href="/about" className="hover:text-mygold">
                     About Us

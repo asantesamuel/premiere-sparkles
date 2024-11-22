@@ -1,66 +1,145 @@
 import React from "react";
 import BackButton from "../components/backButton";
+import localFont from "next/font/local";
+import packages from "../data/packages.json";
+
+const myFont = localFont({
+  src: "../static-fonts/PlayfairDisplay-VariableFont_wght.ttf",
+  display: "swap",
+});
 
 const page = () => {
   return (
     <div>
-      <BackButton />
-      <div className="w-full h-[100px] ">
-        <h1 className=" text-[32px] text-center font-bold md:text-[60px] ">
-          Our Services
-        </h1>
+      <div className="w-full h-[400px] bg-[url('/2ndimage.jpg')] bg-cover bg-black bg-opacity-55 bg-blend-darken flex justify-center items-center">
+        <div className={myFont.className}>
+          <h1 className="text-[50px] text-white">Our Packages</h1>
+        </div>
       </div>
-      <div className="flex justify-center items-center w-full p-10 ">
-        <div className="bg-mylightpurple p-10 w-[1200px] md:h-[400px] md:grid md:grid-cols-5 gap-4">
-          <div className=" block col-span-3">
-            <div className="h-[80px] w-full flex justify-start items-center text-[32px] font-medium">
-              <h1>Hair Dressing - Twist</h1>
-            </div>
-            <div className=" flex justify-between items-center ">
-              <div className="w-1/2 h-[50px] border-2 border-black flex justify-evenly items-center">
-                <h1 className="text-[20px] text-black">Cost</h1>
-                <h1 className="text-[20px] text-black">GHS200</h1>
-              </div>
-              <div className="w-1/2 h-[50px] text-red-600">
-                <button className=" text-lg text-left  px-8 py-4   ">
-                  {" "}
-                  Book Now
-                </button>
-              </div>
-            </div>
 
-            <div className=" flex flex-col text-left justify-center items-center space-y-4 h-[200px]">
-              <div>
-                <h1 className="text-[20px] text-black">
-                  {" "}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                  et lorem nec odio ultricies pharetra.{" "}
-                </h1>
-              </div>
-              <div>
-                <h1 className="text-[20px] text-red-600">
-                  {" "}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                  et lorem nec odio ultricies pharetra.{" "}
-                </h1>
-              </div>
+      <BackButton />
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        {/* Makeup */}
+        <div className="flex justify-center items-center">
+          <div className="flex flex-col justify-start items-start p-10">
+            <div className="text-[40px] text-left text-mypurple font-bold pb-4">
+              <h1 className={myFont.className}>MAKEUP</h1>
+              <p className="text-sm font-light text-left text-slate-500">
+                Call/Text 0503192450 or 0547873650 for costs
+              </p>
+            </div>
+            <div className="space-y-8">
+              {packages.makeup &&
+                packages.makeup.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="flex items-center w-full space-x-4 text-purple-900">
+                      <h1>{item.type}</h1>
+                      <div className="h-[1px] bg-slate-800 w-[150px]"></div>
+                      <h1>GHC {` ` + item.price}</h1>
+                    </div>
+                  );
+                })}
             </div>
           </div>
-
-          {/* <!-- 2nd col --> */}
-          <div className="col-span-2 p-8 flex relative flex-col justify-center  items-center">
-            <div className=" w-[240px] -mb-8 z-10   h-[60px] bg-white flex flex-col justify-center items-center space-y-4">
-              <h1 className="text-md text-mypurple font-medium ">
-                Our Services
+        </div>
+        {/* Nails */}
+        <div className="flex justify-center items-center">
+          <div className="flex flex-col justify-start items-start p-10">
+            <div className="text-[40px] text-left text-mypurple font-bold pb-4">
+              <h1 className={myFont.className}>NAILS</h1>
+              <p className="text-sm font-light text-left text-slate-500">
+                Call/Text 0503192450 or 0547873650 for costs
+              </p>
+            </div>
+            <div className="space-y-8">
+              {packages.nails &&
+                packages.nails.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="flex items-center w-full space-x-4 text-purple-900">
+                      <h1>{item.type}</h1>
+                      <div className="h-[1px] bg-slate-800 w-[150px]"></div>
+                      <h1>GHC {` ` + item.price}</h1>
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+        </div>
+        {/* Lashes */}
+        <div className="flex justify-center items-center">
+          <div className="flex flex-col justify-start items-start p-10">
+            <div className={myFont.className}>
+              <h1 className="text-[40px] text-left text-mypurple font-bold pb-4">
+                LASHES
               </h1>
             </div>
-            <div className="   w-[300px] h-[240px] bg-mypurple flex-col  flex justify-center items-center">
-              <h1 className="text-sm text-white text-left font-regular w-[200px] ">
-                Available At this location
+            <div className="space-y-8">
+              {packages.lashes &&
+                packages.lashes.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="flex items-center w-full space-x-4 text-purple-900">
+                      <h1>{item.type}</h1>
+                      <div className="h-[1px] bg-slate-800 w-[150px]"></div>
+                      <h1>GHC {` ` + item.price}</h1>
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+        </div>
+        {/* Wigs */}
+        <div className="flex justify-center items-center">
+          <div className="flex flex-col justify-start items-start p-10">
+            <div className="text-[40px] text-left text-mypurple font-bold pb-4">
+              <h1 className={myFont.className}>WIGS</h1>
+              <p className="text-sm font-light text-left text-slate-500">
+                Call/Text 0503192450 or 0547873650 for costs
+              </p>
+            </div>
+            <div className="space-y-8">
+              {packages.wigs &&
+                packages.wigs.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="flex items-center w-full space-x-4 text-purple-900">
+                      <h1>{item.type}</h1>
+                      <div className="h-[1px] bg-slate-800 w-[150px]"></div>
+                      <h1>GHC {` ` + item.price}</h1>
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+        </div>
+        {/* Pedicure */}
+        <div className="flex justify-center items-center">
+          <div className="flex flex-col justify-start items-start p-10">
+            <div className={myFont.className}>
+              <h1 className="text-[40px] text-left text-mypurple font-bold pb-4">
+                PEDICURE
               </h1>
-              <h1 className="text-md text-white text-left font-medium w-[200px]">
-                North Legon Opposite Papa’s Pizza Dzorwulu Ebony Junction
-              </h1>
+            </div>
+            <div className="space-y-8">
+              {packages.pedicure &&
+                packages.pedicure.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="flex items-center w-full space-x-4 text-purple-900">
+                      <h1>{item.type}</h1>
+                      <div className="h-[1px] bg-slate-800 w-[150px]"></div>
+                      <h1>GHC {` ` + item.price}</h1>
+                    </div>
+                  );
+                })}
             </div>
           </div>
         </div>
