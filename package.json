@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@payloadcms/next": "^3.0.1",
     "@payloadcms/richtext-lexical": "^3.0.1",
     "@react-google-maps/api": "^2.20.3",

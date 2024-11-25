@@ -2,7 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
+import InputSearch from "./InputSearch";
 
 import localFont from "next/font/local";
 
@@ -19,75 +20,68 @@ const Nav = () => {
   };
 
   const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <div>
       <nav className=" bg-mypurple w-full  ">
-        {" "}
         <div className="hidden xl:block w-full h-[70px]">
           <div className=" grid w-full grid-cols-12   text-white font-family:inter gap-8 p-2  xl:text-[14px]">
             <div className="col-span-4 flex-shrink-0">
-              {" "}
               <div className="text-2xl font-extrabold mt-1.5 ">
-                <div className={myFont.className}>Premiere Sparkle Saloon</div>
+                <Link href="/" className={myFont.className}>
+                  Premiere Sparkle Saloon
+                </Link>
               </div>
             </div>
 
             <div className="flex justify-between col-span-4 mt-3 ">
-              {" "}
               <div>
-                <div className={router.pathname === "/" ? "active" : ""}>
-                  <Link href="/">Home</Link>
+                <div>
+                  <Link
+                    className={`link ${pathname === "/" ? "text-mygold" : ""} hover:text-mygold`}
+                    href="/">
+                    Home
+                  </Link>
                 </div>
-              </div>{" "}
+              </div>
               <div>
-                <Link href="/works" className="hover:text-mygold">
+                <Link
+                  className={`link ${pathname === "/works" ? "text-mygold" : ""} hover:text-mygold`}
+                  href="/works">
                   Our Services
                 </Link>
-              </div>{" "}
+              </div>
               <div>
-                <Link href="/packagess" className="hover:text-mygold">
+                <Link
+                  href="/packagess"
+                  className={`link ${pathname === "/packagess" ? "text-mygold" : ""} hover:text-mygold`}>
                   Packages
                 </Link>
-              </div>{" "}
+              </div>
               {/* <div>
                 <Link href="/product" className="hover:text-mygold">
                   Products
                 </Link>
-              </div>{" "} */}
+              </div> */}
               <div>
-                <Link href="/about" className="hover:text-mygold">
+                <Link
+                  href="/about"
+                  className={`link ${pathname === "/about" ? "text-mygold" : ""} hover:text-mygold`}>
                   About Us
                 </Link>
-              </div>{" "}
+              </div>
               <div>
-                <Link href="/location" className="hover:text-mygold">
+                <Link
+                  href="/location"
+                  className={`link ${pathname === "/location" ? "text-mygold" : ""} hover:text-mygold`}>
                   Our Location
                 </Link>
               </div>
             </div>
             <div className="col-span-3 flex justify-center items-center">
-              <div className=" flex   justify-center  items-center border-2 border-white p-2 h-[50px]">
-                <span className="fill-white stroke-current text-white  ">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    class="size-6">
-                    <path
-                      fill-rule="evenodd"
-                      d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </span>
-                <input
-                  type="text"
-                  placeholder="search"
-                  aria-label="search"
-                  className="search-input w-[250px] bg-transparent rounded-none p-2 h-[70px]border-none  outline-none  "
-                />
-              </div>
+              {/* search input */}
+              <InputSearch />
             </div>
             <div className="col-span-1 flex justify-center  items-center">
               <div className="m-0.5">
@@ -97,10 +91,10 @@ const Nav = () => {
                   width={20}
                   height={20}
                 />
-              </div>{" "}
+              </div>
               <div className="m-0.5">
                 <Image src="/x.svg" alt="twitter" width={20} height={20} />
-              </div>{" "}
+              </div>
               <div className=" m-0.5">
                 <Image
                   src="/instagram.svg"
@@ -118,7 +112,6 @@ const Nav = () => {
               <div className="mr-8">
                 {isClicked ? (
                   <span className="stroke-curent text-white">
-                    {" "}
                     <svg
                       className="h-8 w-8"
                       xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +128,6 @@ const Nav = () => {
                   </span>
                 ) : (
                   <span className="stroke-curent text-white">
-                    {" "}
                     <svg
                       className="h-8 w-8"
                       xmlns="http://www.w3.org/2000/svg"
@@ -159,36 +151,16 @@ const Nav = () => {
           <div className="  xl:hidden">
             <div className="  h-[350px] space-y-5 bg-mypurple text-white font-family:inter p-2 text-[12px]  xl:text-[14px] ">
               <div className=" block">
-                {" "}
                 <div className="text-xl  font-extrabold :xl:text-[12px]">
                   Premiere Sparkle Saloon
                 </div>
               </div>
               <div className=" block">
-                <div className=" w-[200px] border-2 border-white p-2 h-[40px] flex justify-start items-center">
-                  <span className="fill-white stroke-current text-white  ">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      class="size-6">
-                      <path
-                        fill-rule="evenodd"
-                        d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                  <input
-                    type="text"
-                    placeholder="search"
-                    aria-label="search"
-                    className="w-[100px] bg-transparent rounded-none p-2 h-[40px] border-none  outline-none  "
-                  />
+                <div className=" w-[200px] h-[40px] flex justify-start items-center">
+                  <InputSearch />
                 </div>
               </div>
               <div className=" space-y-2">
-                {" "}
                 <div>
                   <Link
                     className={router.pathname === "/" ? "active" : ""}
@@ -197,27 +169,27 @@ const Nav = () => {
                   >
                     Home
                   </Link>
-                </div>{" "}
+                </div>
                 <div>
                   <Link href="/works" className="hover:text-mygold">
                     Our Services
                   </Link>
-                </div>{" "}
+                </div>
                 <div>
                   <Link href="/packagess" className="hover:text-mygold">
                     Packages
                   </Link>
-                </div>{" "}
+                </div>
                 {/* <div>
                   <Link href="/product" className="hover:text-mygold">
                     Products
                   </Link>
-                </div>{" "} */}
+                </div> */}
                 <div>
                   <Link href="/about" className="hover:text-mygold">
                     About Us
                   </Link>
-                </div>{" "}
+                </div>
                 <div>
                   <Link href="/location" className="hover:text-mygold">
                     Our Location
@@ -233,10 +205,10 @@ const Nav = () => {
                     width={20}
                     height={20}
                   />
-                </div>{" "}
+                </div>
                 <div className="m-0.5">
                   <Image src="/x.svg" alt="twitter" width={20} height={20} />
-                </div>{" "}
+                </div>
                 <div className=" m-0.5">
                   <Image
                     src="/instagram.svg"

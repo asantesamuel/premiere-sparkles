@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import SendEmail from "./SendEmail";
 const footer = () => {
   return (
     <div className="">
@@ -138,39 +139,10 @@ const footer = () => {
                 </div>
               </div>
             </div>
-            <div>
-              <div className=" rounded-sm shadow-md p-4 flex justify-center ">
-                <div className="flex flex-col  md:space-y-2">
-                  <div>
-                    <h1 className=" text-black font-bold text-[10px] md:text-xl">
-                      Contact Us
-                    </h1>
-                  </div>
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="Name"
-                      className="  w-[100px] text-[10px] h-[8px] border-2 p-2 border-slate-200 outline-none md:text-lg md:w-[200px] md:h-[50px] md:p-4"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="Email"
-                      className="w-[100px] text-[10px] h-[8px] border-2 p-2 border-slate-200 outline-none md:text-lg md:w-[200px] md:h-[50px] md:p-4"
-                    />
-                  </div>
-                  <div>
-                    <textarea
-                      type="text"
-                      placeholder="Message..."
-                      className="w-[100px] h-[70px] border-2 p-2 border-slate-200 outline-none text-[10px] md:text-lg md:w-[200px] md:h-[100px] md:p-4"
-                    />
-                  </div>
-                  <div></div>
-                </div>
-              </div>
-            </div>
+
+            {/* 
+            contact us details */}
+            <SendEmail />
           </div>
         </div>
       </div>

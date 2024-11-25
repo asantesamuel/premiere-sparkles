@@ -32,7 +32,7 @@ const page = () => {
                 </div>
                 <div className=" w-2/3">
                   <h1 className="text-[8px] w-[250px] md:text-xl md:w-[400px]">
-                    Mon to Fri 9am -6pm Sat 8.30am - 6pm   Sunday 12.30pm - 6pm
+                    Mondays to Saturdays 9am-8pm
                   </h1>
                 </div>
               </div>

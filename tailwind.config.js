@@ -15,6 +15,15 @@ module.exports = {
         mypurple: "#9C049E",
       },
     },
+    keyframes: {
+      appear: {
+        "0%": { opacity: 0 },
+        "100%": { opacity: 1 },
+      },
+    },
+    animation: {
+      appear: "appear 1s linear",
+    },
   },
   plugins: [],
 };
