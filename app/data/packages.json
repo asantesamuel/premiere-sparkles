@@ -2,20 +2,19 @@
   "makeup": [
     {
       "type": "Soft Glam",
-      "price": "",
-      "pic": "serviceone.jpg"
+      "price": 200
     },
     {
       "type": "Full Glam",
-      "price": ""
+      "price": 350
     },
     {
       "type": "Casual",
-      "price": ""
+      "price": 150
     },
     {
       "type": "Photo Shoot",
-      "price": ""
+      "price": 450
     },
     {
       "type": "Bridal",
@@ -24,20 +23,28 @@
   ],
   "nails": [
     {
-      "type": "Acrylic Nails",
-      "price": ""
+      "type": "Acrylic Nails - Short ",
+      "price": 100
     },
     {
-      "type": "Acrylic Toes",
-      "price": ""
+      "type": "Acrylic Nails - Medium ",
+      "price": 130
+    },
+    {
+      "type": "Acrylic Nails - long ",
+      "price": 160
+    },
+    {
+      "type": "Acrylic Toes ",
+      "price": 70
     },
     {
       "type": "Gel Nails",
-      "price": ""
+      "price": 70
     },
     {
       "type": "Gel Toes",
-      "price": ""
+      "price": 50
     }
   ],
   "lashes": [
@@ -76,20 +83,28 @@
   ],
   "wigs": [
     {
-      "type": "Sewing",
-      "price": ""
+      "type": "Sewing - Frontal",
+      "price": 200
     },
     {
-      "type": "Installation",
-      "price": ""
+      "type": "Sewing - Closure",
+      "price": 150
+    },
+    {
+      "type": "Installation - Frontal",
+      "price": 200
+    },
+    {
+      "type": "Installation - Closure",
+      "price": 140
     },
     {
       "type": "Styling",
-      "price": ""
+      "price": 100
     },
     {
       "type": "Revamping",
-      "price": ""
+      "price": 120
     }
   ],
   "pedicure": [

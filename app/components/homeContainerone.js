@@ -1,6 +1,6 @@
 const homeContainerone = () => {
   return (
-    <div className="bg-mylightpurple  flex justify-center items-center  p-8 space-x-8 ">
+    <div className="bg-mylightpurple  flex justify-center items-center  p-8 space-x-8 w-full h-[500px]">
       <div className="h-[400px] w-[400px] bg-cover bg-center bg-no-repeat  bg-black bg-opacity-10 bg-[url('/TIFA2.JPG')] "></div>
       <div className=" flex justify-center items-center text-black text-[10px] h-[100px] w-[400px] lg:text-[12px] xl:text-[18px] xl:w-[800px] xl:h-[300px] lg:w-3/4">
         <p>

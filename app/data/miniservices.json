@@ -1,0 +1,198 @@
+[
+  {
+    "id": 1,
+    "title": "Soft Glam Makeup",
+    "description": "A soft and natural makeup look.",
+    "cost": 200,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Full Glam Makeup",
+    "description": "A full and dramatic makeup look.",
+    "cost": 350,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Casual Makeup",
+    "description": "A simple and casual makeup look.",
+    "cost": 150,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Photo Shoot Makeup",
+    "description": "Makeup designed for photo shoots.",
+    "cost": 450,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Acrylic Nails (Short)",
+    "description": "Short acrylic nails. Extra design comes with extra cost.",
+    "cost": 100,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Acrylic Nails (Medium)",
+    "description": "Medium acrylic nails.",
+    "cost": 130,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Acrylic Nails (Long)",
+    "description": "Long acrylic nails.",
+    "cost": 160,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Acrylic Toes",
+    "description": "Acrylic nails for toes. Extra design comes with extra cost.",
+    "cost": 100,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Gel Nails",
+    "description": "Gel nails for a long-lasting finish.",
+    "cost": 70,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Gel Toes",
+    "description": "Gel nails for toes.",
+    "cost": 50,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Classic Lashes",
+    "description": "Classic eyelash extensions.",
+    "cost": 120,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Classic Cat Eye Lashes",
+    "description": "Classic cat eye eyelash extensions.",
+    "cost": 150,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Hybrid Lashes",
+    "description": "Hybrid eyelash extensions.",
+    "cost": 180,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 14,
+    "title": "Hybrid Cat Eye Lashes",
+    "description": "Hybrid cat eye eyelash extensions.",
+    "cost": 200,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Wispy Lashes",
+    "description": "Wispy eyelash extensions.",
+    "cost": 210,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 16,
+    "title": "Volume Lashes",
+    "description": "Volume eyelash extensions.",
+    "cost": 260,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 17,
+    "title": "Volume Cat Eye Lashes",
+    "description": "Volume cat eye eyelash extensions.",
+    "cost": 280,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 18,
+    "title": "Mega Lashes",
+    "description": "Mega volume eyelash extensions.",
+    "cost": 350,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 19,
+    "title": "Frontal Wig Sewing",
+    "description": "S ewing of frontal wigs.",
+    "cost": 200,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 20,
+    "title": "Closure Wig Sewing",
+    "description": "Sewing of closure wigs.",
+    "cost": 150,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 21,
+    "title": "Frontal Wig Installation",
+    "description": "Installation of frontal wigs.",
+    "cost": 200,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 22,
+    "title": "Closure Wig Installation",
+    "description": "Installation of closure wigs.",
+    "cost": 140,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 23,
+    "title": "Wig Styling",
+    "description": "Styling of wigs.",
+    "cost": 100,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 24,
+    "title": "Wig Revamping",
+    "description": "Revamping of wigs.",
+    "cost": 120,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 25,
+    "title": "Regular Pedicure",
+    "description": "A standard pedicure service.",
+    "cost": 100,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 26,
+    "title": "Signature Pedicure",
+    "description": "A signature pedicure experience.",
+    "cost": 180,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 27,
+    "title": "Deluxe Pedicure",
+    "description": "A deluxe pedicure service.",
+    "cost": 220,
+    "image": "nailtech.jpg"
+  },
+  {
+    "id": 28,
+    "title": "Jelly Pedicure",
+    "description": "A jelly pedicure for a unique experience.",
+    "cost": 270,
+    "image": "nailtech.jpg"
+  }
+]
