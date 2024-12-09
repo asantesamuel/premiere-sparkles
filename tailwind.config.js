@@ -13,6 +13,7 @@ module.exports = {
         mygold: "#FFEC9E",
         mylightpurple: "#FDDAFF",
         mypurple: "#9C049E",
+        mylightgold:"#FBF8EF"
       },
     },
     keyframes: {

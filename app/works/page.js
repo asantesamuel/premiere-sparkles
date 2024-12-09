@@ -14,17 +14,16 @@ const page = () => {
       </div>
       {services &&
         services.map((service, index) => {
-          {
-            /* const alignmentClass =index % 2 === 0 ? "justify-start" : "justify-end"; */
-          }
-          {
-            /* className={`flex md:${alignmentClass}`} */
-          }
+          const alignmentClass =
+            index % 2 === 0 ? "justify-start" : "justify-end";
+
+          const className = `flex md:${alignmentClass} justify-center`;
+
           return (
-            <div key={service.id}>
+            <div key={index} className={className}>
               <div>
                 <div className="flex justify-center items-center w-full p-10 ">
-                  <div className="bg-mylightpurple p-10 w-[1200px]  md:h-[400px] md:grid md:grid-cols-5 gap-4">
+                  <div className="bg-mylightpurple w-[450px] p-10 lg:w-[1000px] xl:w-[1200px] md:w-[800px] md:h-[400px] md:grid md:grid-cols-5 gap-4">
                     <div className=" block col-span-3">
                       <div className="h-[80px] w-full flex justify-start items-center text-[32px] font-medium">
                         <h1>{service.title}</h1>

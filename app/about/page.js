@@ -1,10 +1,13 @@
 import React from "react";
-import Image from "next/image";
+import AboutDivone from "../components/aboutDivone";
+import AboutDivtwo from "../components/aboutDivtwo";
+import AboutDivthree from "../components/aboutDivthree";
+import AboutDivfour from "../components/aboutDivfour";
 
 const page = () => {
   return (
-    <div className="flex justify-center items-start text-sm w-full  pt-20 pb-20">
-      <div className="md:flex md:flex-col md:justify-start w-[400px] lg:w-[1000px] md:w-[700px]   ">
+    <div>
+      {/* <div className="md:flex md:flex-col md:justify-start w-[400px] lg:w-[1000px] md:w-[700px]   ">
         <h1 className="md:text-[70px]  text-[32px] font-bold h-[200px] flex justify-start items-center  md:w-[700px] lg:w-[1000px]   ">
           About Us
         </h1>
@@ -51,6 +54,19 @@ const page = () => {
             experience the art of transformation with us and take the first step
             toward a more radiant you.
           </p>
+        </div>
+      </div> */}
+
+      <AboutDivone />
+      <AboutDivtwo />
+      <AboutDivthree />
+      <AboutDivfour />
+      <div className="w-[520px] sm:w-full sm:h-[1000px]  z-0 h-[700px] bg-cover text-white  flex-col  bg-[url('/TIFA2.JPG')] sticky  bg-black bg-opacity-30 bg-blend-darken flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center hover:display-none delay-300">
+          <h1 className="font-bold text-3xl hover:bg-transparent">
+            Miss Tifa Quaye
+          </h1>
+          <h1>Founder and CEO</h1>
         </div>
       </div>
     </div>

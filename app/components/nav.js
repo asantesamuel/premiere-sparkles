@@ -23,8 +23,8 @@ const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <div>
-      <nav className=" bg-mypurple w-full  ">
+    <div className="w-full">
+      <nav className=" bg-mypurple ">
         <div className="hidden xl:block w-full h-[70px]">
           <div className=" grid w-full grid-cols-12   text-white font-family:inter gap-8 p-2  xl:text-[14px]">
             <div className="col-span-4 flex-shrink-0">
