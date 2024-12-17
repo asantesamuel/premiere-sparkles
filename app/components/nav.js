@@ -23,7 +23,7 @@ const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <div className="w-full">
+    <div className="navbar">
       <nav className=" bg-mypurple ">
         <div className="hidden xl:block w-full h-[70px]">
           <div className=" grid w-full grid-cols-12   text-white font-family:inter gap-8 p-2  xl:text-[14px]">
@@ -92,9 +92,12 @@ const Nav = () => {
                   height={20}
                 />
               </div>
-              <div className="m-0.5">
+              <Link
+                target="_blank"
+                href="https://www.instagram.com/ys.asante/"
+                className="m-0.5">
                 <Image src="/x.svg" alt="twitter" width={20} height={20} />
-              </div>
+              </Link>
               <div className=" m-0.5">
                 <Image
                   src="/instagram.svg"
@@ -106,6 +109,7 @@ const Nav = () => {
             </div>
           </div>
         </div>
+        {/* mobile nav */}
         <div>
           <div className="h-[70px] flex justify-end items-center w-full  xl:hidden ">
             <button onClick={togglenNav} className=" ">

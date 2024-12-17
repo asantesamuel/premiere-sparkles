@@ -13,7 +13,7 @@ const Hero = () => {
         <div className="flex flex-col justify-center items-center   md:flex md:flex-row md:space-x-8 md:justify-start">
           {" "}
           <Link
-            href="/miniServices"
+            href="/works"
             className="bg-mypurple text-white text-lg  px-8 py-4 mt-4  w-[260px] hover:bg-opacity-80 ">
             See our Services
           </Link>

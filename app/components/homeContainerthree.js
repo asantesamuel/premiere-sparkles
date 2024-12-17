@@ -5,7 +5,7 @@ const homeContainerthree = () => {
   return (
     <div>
       {" "}
-      <div className="flex flex-col justify-center h-[1000px] items-center w-full ">
+      <div className="flex flex-col justify-center h-[600px] items-center w-full ">
         <div>
           <h1 className="text-[32px] text-center font-bold m-10 md:text-6xl">
             Discover Our Special Packages

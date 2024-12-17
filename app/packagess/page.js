@@ -11,7 +11,7 @@ const myFont = localFont({
 const page = () => {
   return (
     <div>
-      <div className="w-[520px] sm:w-full sm:h-[1000px] object-center z-0 h-[700px]  bg-cover bg-[url('/photoshootthree.PNG')] sticky  bg-black bg-opacity-30 bg-blend-darken flex justify-center items-center">
+      <div className="w-full sm:h-[1000px] object-center z-0 h-[700px]  bg-cover bg-[url('/photoshootthree.PNG')] sticky  bg-black bg-opacity-30 bg-blend-darken flex justify-center items-center">
         <div className={myFont.className}>
           <h1 className="text-[50px] text-white">Our Packages</h1>
         </div>

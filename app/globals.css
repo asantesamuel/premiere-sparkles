@@ -17,6 +17,21 @@ textarea::placeholder {
   color: #ffffff; /* Change this to your desired color */
   opacity: 1; /* Optional: Make the placeholder fully opaque */
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+.navbar, .topbar {
+    width: 100%;
+}
 
 @layer base {
   html {

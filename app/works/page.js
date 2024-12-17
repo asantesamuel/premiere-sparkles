@@ -1,6 +1,7 @@
 import React from "react";
 import BackButton from "../components/backButton";
 import services from "../data/services.json";
+import Link from "next/link";
 
 const page = () => {
   return (
@@ -35,9 +36,11 @@ const page = () => {
                           </h1>
                         </div>
                         <div className="w-1/4 h-[50px] text-red-600">
-                          <div className=" text-lg text-left  px-8 py-[12px]   ">
-                            Book Now
-                          </div>
+                          <Link
+                            href="/bookAppointment"
+                            className=" text-lg text-left  px-8 py-[12px]   ">
+                            Book
+                          </Link>
                         </div>
                       </div>
 

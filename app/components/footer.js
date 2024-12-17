@@ -48,11 +48,11 @@ const footer = () => {
         </div>
       </div>
       <div className="flex justify-center items-center w-full p-10 mb-[300px]">
-        <div className=" w-full md:w-[1500px] flex justify-evenly itmes bg-center ">
-          <div className=" flex flex-col space-y-10 items-start md:grid md:grid-cols-4 md:space-y-0">
+        <div className=" w-full md:w-[1500px] flex justify-evenly items-center">
+          <div className=" flex flex-col space-y-10 justify-center items-center md:items-start md:grid md:grid-cols-4 md:space-y-0">
             <div className=" flex justify-center">
               {" "}
-              <div className="flex flex-col text-[10px] md:text-xl md:space-y-2">
+              <div className="flex flex-col text-center md:text-left text-[14px] md:text-xl md:space-y-2">
                 <h1 className=" text-black font-bold">
                   Book an appointment with with us
                 </h1>
@@ -61,9 +61,9 @@ const footer = () => {
                 </h1>
               </div>
             </div>
-            <div className="flex justify-center text-[10px]  md:text-xl md:space-y-2">
+            <div className="flex justify-center items-center text-center md:text-left text-[14px]   md:text-xl md:space-y-2">
               {" "}
-              <div className="flex flex-col text-[10px]  md:text-xl md:space-y-2">
+              <div className="flex flex-col justify-center space-y-4 items-center md:items-start  text-center md:text-left text-[14px]   md:text-xl md:space-y-2">
                 {" "}
                 <div>
                   <Link href="/" className="hover:text-mypurple">
@@ -92,15 +92,15 @@ const footer = () => {
                 </div>
               </div>
             </div>
-            <div className="flex justify-center text-[10px] md:text-xl">
-              <div className="flex flex-col  md:space-y-2">
+            <div className="flex justify-center  md:text-xl">
+              <div className="flex-col space-y-2 text-lg flex justify-center items-center md:items-start md:space-y-2">
                 <div>
-                  <h1 className=" text-black font-bold text-md">
+                  <h1 className=" text-black text-center md:text-left text-[20px] md:flex md:justify-center md:items-center font-bold text-md">
                     Let&apos;s Connect
                   </h1>
                 </div>
                 <div>
-                  <div className=" flex justify-center items-center w-[80px10] h-[40px] bg-mypurple text-white ">
+                  <div className=" flex justify-center items-center w-[80px10] px-6 h-[40px] bg-mypurple text-white ">
                     Email Us
                   </div>
                 </div>
@@ -113,16 +113,16 @@ const footer = () => {
                       <Image
                         src="/facebook-black.svg"
                         alt="facebook-black"
-                        width={10}
-                        height={10}
+                        width={20}
+                        height={20}
                       />
                     </button>{" "}
                     <button className="m-0.5">
                       <Image
                         src="/x-black.svg"
                         alt="x-black"
-                        width={10}
-                        height={10}
+                        width={20}
+                        height={20}
                       />
                     </button>{" "}
                     <button className=" m-0.5">
@@ -130,8 +130,8 @@ const footer = () => {
                         <Image
                           src="/instagram-black.svg"
                           alt="instagram-black"
-                          width={10}
-                          height={10}
+                          width={20}
+                          height={20}
                         />
                       </span>
                     </button>

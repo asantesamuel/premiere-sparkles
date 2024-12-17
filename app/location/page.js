@@ -2,7 +2,7 @@ import React from "react";
 import BackButton from "../components/backButton";
 import Map from "../components/maps";
 import Image from "next/image";
-
+import Link from "next/link";
 const page = () => {
   return (
     <div>
@@ -67,9 +67,11 @@ const page = () => {
                 </div>
               </div>
               <div className=" flex justify-center items-center w-[300px] md:w-[440px] h-[50px]  md:flex md:justify-start md:items-center space-x-4">
-                <button className="bg-mypurple md:w-[483px] lg:w-[full] text-white px-4 py-2">
+                <Link
+                  href="/bookAppointment"
+                  className="bg-mypurple md:w-[483px] lg:w-[full] text-white px-4 py-2">
                   Book a service
-                </button>
+                </Link>
               </div>
             </div>
           </div>
