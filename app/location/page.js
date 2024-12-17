@@ -3,80 +3,80 @@ import BackButton from "../components/backButton";
 import Map from "../components/maps";
 import Image from "next/image";
 import Link from "next/link";
+
 const page = () => {
   return (
     <div>
       <BackButton />
-      <div className="w-full h-[100px] ">
-        <h1 className=" text-[32px] text-center font-bold md:text-[60px] ">
+      <div className="w-full h-[100px] flex justify-center items-center">
+        <h1 className="text-[28px] md:text-[40px] xl:text-[60px] text-center font-bold">
           Our Locations
         </h1>
       </div>
 
-      <div className="flex justify-center items-center w-full p-10 ">
-        <div className="bg-mylightpurple flex flex-col w-[300px] md:flex md:flex-col md:w-[600px] xl:h-[450px] xl:grid xl:grid-cols-5 xl:w-[1100px] ">
-          {/* <!-- 1st col --> */}
-          <div className="col-span-3 p-2  w-[350px] md:p-8 space-y-2 md:space-y-8 lg:w-[640px] md:h-[450px]">
-            <div className=" h-[40px] w-[350px] text-md md:h-[80px] md:w-full flex  justify-start items-center md:text-[32px] font-medium">
+      <div className="flex justify-center items-center w-full p-6 md:p-10">
+        <div className="bg-mylightpurple flex flex-col w-full max-w-[300px] md:max-w-[600px] xl:max-w-[1100px] xl:grid xl:grid-cols-5">
+          {/* 1st Column */}
+          <div className="col-span-3 p-4 md:p-6 xl:p-8 space-y-4 xl:space-y-6">
+            <div className="h-auto w-full flex items-center text-md md:text-lg xl:text-2xl font-medium">
               <h1>North Legon, Deer Street</h1>
             </div>
-            <div className=" flex flex-col justify-start w-[350px] space-y-4 h-full ">
-              <div className="w-[350px] h-[50px]  flex justify-start items-center space-x-4">
-                <div>
-                  <Image
-                    src="/alarm.svg"
-                    alt="x-black"
-                    width={30}
-                    height={30}
-                  />
-                </div>
-                <div className=" w-2/3">
-                  <h1 className="text-[8px] w-[250px] md:text-xl md:w-[400px]">
-                    Mondays to Saturdays 9am-8pm
-                  </h1>
-                </div>
+
+            <div className="space-y-4">
+              {/* Business Hours */}
+              <div className="flex items-center space-x-4">
+                <Image
+                  src="/alarm.svg"
+                  alt="opening-hours"
+                  className="w-[20px] h-[20px] md:w-[30px] md:h-[30px]"
+                  width={30}
+                  height={30}
+                />
+                <p className="text-sm md:text-base xl:text-lg">
+                  Mondays to Saturdays 9am-8pm
+                </p>
               </div>
-              <div className="w-[350px] h-[50px]  flex justify-start items-center space-x-4">
-                <div>
-                  <Image
-                    src="/map.svg"
-                    alt="map-black"
-                    width={30}
-                    height={30}
-                  />
-                </div>
-                <div className="w-2/3">
-                  <h1 className="text-[8px] w-[250px] md:text-xl md:w-[400px]">
-                    Deer street 7,North Legon
-                  </h1>
-                </div>
-              </div>{" "}
-              <div className="w-[350px] h-[50px]  flex justify-start items-center space-x-4">
-                <div>
-                  <Image
-                    src="/phone.svg"
-                    alt="phone-black"
-                    width={30}
-                    height={30}
-                  />
-                </div>
-                <div className="">
-                  <h1 className="text-[8px] w-[250px] md:text-xl md:w-[300px]">
-                    +233 547873650 || +233 503192450
-                  </h1>
-                </div>
+
+              {/* Address */}
+              <div className="flex items-center space-x-4">
+                <Image
+                  src="/map.svg"
+                  alt="map-icon"
+                  className="w-[20px] h-[20px] md:w-[30px] md:h-[30px]"
+                  width={30}
+                  height={30}
+                />
+                <p className="text-sm md:text-base xl:text-lg">
+                  Deer Street 7, North Legon
+                </p>
               </div>
-              <div className=" flex justify-center items-center w-[300px] md:w-[440px] h-[50px]  md:flex md:justify-start md:items-center space-x-4">
+
+              {/* Contact Numbers */}
+              <div className="flex items-center space-x-4">
+                <Image
+                  src="/phone.svg"
+                  alt="phone-icon"
+                  className="w-[20px] h-[20px] md:w-[30px] md:h-[30px]"
+                  width={30}
+                  height={30}
+                />
+                <p className="text-sm md:text-base xl:text-lg">
+                  +233 547873650 || +233 503192450
+                </p>
+              </div>
+
+              {/* Book a Service Button */}
+              <div className="flex justify-center md:justify-start">
                 <Link
                   href="/bookAppointment"
-                  className="bg-mypurple md:w-[483px] lg:w-[full] text-white px-4 py-2">
-                  Book a service
+                  className="bg-mypurple text-white px-6 py-2 md:px-8 md:py-3 text-sm md:text-base xl:text-lg ">
+                  Book a Service
                 </Link>
               </div>
             </div>
           </div>
 
-          {/* <!-- 2nd col --> */}
+          {/* 2nd Column */}
           <div className="col-span-2 ">
             <Map />
           </div>
