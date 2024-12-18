@@ -1,27 +1,36 @@
 import React from "react";
 import Link from "next/link";
-const homeContainertwo = () => {
+
+const HomeContainerTwo = () => {
   return (
-    <div className="flex justify-center items-center w-full p-2 h-[700px]">
-      <div className="grid grid-row-2 justify-center items-center ">
-        <div className="flex flex-col justify-center items-center  ">
-          <h1 className="text-xl text-center mb-8 font-black text-black sm:text-5xl md:w-[600px]">
+    <div className="flex justify-center items-center w-full p-4 h-auto">
+      <div className="grid grid-rows-2 gap-8 justify-center items-center w-full max-w-screen-xl">
+        {/* Header Section */}
+        <div className="flex flex-col justify-center items-center text-center space-y-4">
+          <h1 className="text-xl font-black text-black sm:text-4xl lg:text-5xl md:w-[600px]">
             Our Locations
           </h1>
-          <h1 className="text-black text-center w-100">
+          <h2 className="text-black text-base sm:text-lg lg:text-xl w-full md:w-3/4">
             Already know which service you want? Select a location, find your
-            service and book!{" "}
-          </h1>
+            service, and book!
+          </h2>
         </div>
-        <div className=" flex flex-col p-10 items-center space-y-10 xl:space-y-0 xl:space-x-10 lg:space-y-0 lg:space-x-10 md:space-y-10 justify-evenly   lg:flex-row">
-          <div className="shadow-xl h-[200px] w-[200px] flex flex-col justify-center items-center bg-black bg-opacity-45 bg-blend-darken   bg-cover bg-center md:h-[400px] md:w-[700px] lg:w-[1000px]  bg-[url('/accraGhana.jpg')]">
-            <h3 className=" text-[10px] sm:text-[18px] md:font-bold text-white uppercase md:text-md ">
+
+        {/* Locations Section */}
+        <div className="flex flex-col items-center space-y-10 lg:flex-row lg:space-y-0 lg:space-x-10 justify-center">
+          {/* Location Card */}
+          <div
+            className="shadow-xl h-[250px] w-[250px] md:h-[350px] md:w-[600px] lg:h-[400px] lg:w-[800px] flex flex-col justify-center items-center bg-black bg-opacity-50 bg-blend-darken bg-cover bg-center"
+            style={{ backgroundImage: "url('/accraGhana.jpg')" }}>
+            <h3 className="text-[12px] sm:text-[16px] md:text-xl font-bold text-white uppercase">
               North Legon, Deer Street 7
             </h3>
-            <h3 className="text-[12px] text-white md:text-md">Accra, Ghana</h3>
+            <h3 className="text-[12px] sm:text-[16px] md:text-lg text-white">
+              Accra, Ghana
+            </h3>
             <Link
               href="/bookAppointment"
-              className="bg-white text-black text-[14px] flex justify-center items-center  px-8 py-4 mt-4  w-[150px] md:w-[200px] md:text-lg  hover:bg-purple-100">
+              className="bg-white text-black text-sm sm:text-base md:text-lg flex justify-center items-center px-6 py-3 mt-4 hover:bg-purple-100">
               Book Now
             </Link>
           </div>
@@ -31,4 +40,4 @@ const homeContainertwo = () => {
   );
 };
 
-export default homeContainertwo;
+export default HomeContainerTwo;

@@ -11,12 +11,16 @@ const page = () => {
       <AboutDivtwo />
       <AboutDivthree />
       <AboutDivfour />
-      <div className="w-full sm:w-full sm:h-[1000px]  z-0 h-[700px] bg-cover text-white  flex-col  bg-[url('/TIFA2.JPG')] sticky  bg-black bg-opacity-30 bg-blend-darken flex justify-center items-center">
-        <div className="flex flex-col justify-center items-center hover:display-none delay-300">
-          <h1 className="font-bold text-3xl hover:bg-transparent">
+
+      {/* About Section */}
+      <div className="w-full h-[700px] sm:h-[1000px] bg-cover object-center text-white bg-[url('/TIFA2.JPG')] sticky bg-black bg-opacity-30 bg-blend-darken flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center space-y-4 px-6">
+          <h1 className="text-[30px] sm:text-[40px] md:text-[50px] font-bold text-center hover:text-transparent hover:bg-transparent transition-all duration-300">
             Miss Tifa Quaye
           </h1>
-          <h1>Founder and CEO</h1>
+          <h2 className="text-[18px] sm:text-[20px] md:text-[24px] text-center font-light">
+            Founder and CEO
+          </h2>
         </div>
       </div>
     </div>

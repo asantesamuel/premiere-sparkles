@@ -1,10 +1,9 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import InputSearch from "./InputSearch";
-
 import localFont from "next/font/local";
 
 // Font files can be colocated inside of `app`
@@ -15,6 +14,13 @@ const myFont = localFont({
 
 const Nav = () => {
   const [isClicked, setIsClicked] = useState(false);
+  const [mounted, setMounted] = useState(false); // Added to handle client-side only logic
+
+  useEffect(() => {
+    // Set the component as mounted to prevent rendering on the server
+    setMounted(true);
+  }, []);
+
   const togglenNav = () => {
     setIsClicked(!isClicked);
   };
@@ -22,205 +28,162 @@ const Nav = () => {
   const router = useRouter();
   const pathname = usePathname();
 
+  if (!mounted) return null; // Prevents rendering before the component is mounted on the client-side
+
   return (
     <div className="navbar">
-      <nav className=" bg-mypurple ">
+      <nav className="bg-mypurple">
+        {/* Desktop Navbar */}
         <div className="hidden xl:block w-full h-[70px]">
-          <div className=" grid w-full grid-cols-12   text-white font-family:inter gap-8 p-2  xl:text-[14px]">
+          <div className="grid grid-cols-12 text-white gap-8 p-2 xl:text-[14px]">
+            {/* Logo */}
             <div className="col-span-4 flex-shrink-0">
-              <div className="text-2xl font-extrabold mt-1.5 ">
+              <div className="text-2xl font-extrabold mt-1.5">
                 <Link href="/" className={myFont.className}>
                   Premiere Sparkle Saloon
                 </Link>
               </div>
             </div>
 
-            <div className="flex justify-between col-span-4 mt-3 ">
-              <div>
-                <div>
-                  <Link
-                    className={`link ${pathname === "/" ? "text-mygold" : ""} hover:text-mygold`}
-                    href="/">
-                    Home
-                  </Link>
-                </div>
-              </div>
-              <div>
-                <Link
-                  className={`link ${pathname === "/works" ? "text-mygold" : ""} hover:text-mygold`}
-                  href="/works">
-                  Our Services
-                </Link>
-              </div>
-              <div>
-                <Link
-                  href="/packagess"
-                  className={`link ${pathname === "/packagess" ? "text-mygold" : ""} hover:text-mygold`}>
-                  Packages
-                </Link>
-              </div>
-              {/* <div>
-                <Link href="/product" className="hover:text-mygold">
-                  Products
-                </Link>
-              </div> */}
-              <div>
-                <Link
-                  href="/about"
-                  className={`link ${pathname === "/about" ? "text-mygold" : ""} hover:text-mygold`}>
-                  About Us
-                </Link>
-              </div>
-              <div>
-                <Link
-                  href="/location"
-                  className={`link ${pathname === "/location" ? "text-mygold" : ""} hover:text-mygold`}>
-                  Our Location
-                </Link>
-              </div>
+            {/* Navigation Links */}
+            <div className="flex justify-between col-span-4 mt-3">
+              {["/", "/works", "/packagess", "/about", "/location"].map(
+                (link, index) => (
+                  <div key={index}>
+                    <Link
+                      href={link}
+                      className={`link ${
+                        pathname === link ? "text-mygold" : ""
+                      } hover:text-mygold capitalize`}>
+                      {link === "/"
+                        ? "Home"
+                        : link.replace("/", "").replace(/s$/, "")}
+                    </Link>
+                  </div>
+                )
+              )}
             </div>
+
+            {/* Search Input */}
             <div className="col-span-3 flex justify-center items-center">
-              {/* search input */}
               <InputSearch />
             </div>
-            <div className="col-span-1 flex justify-center  items-center">
-              <div className="m-0.5">
+
+            {/* Social Icons */}
+            <div className="col-span-1 flex justify-center items-center space-x-2">
+              <Image
+                src="/facebook.svg"
+                alt="facebook"
+                width={20}
+                height={20}
+              />
+              <Link target="_blank" href="https://www.instagram.com/ys.asante/">
+                <Image src="/x.svg" alt="twitter" width={20} height={20} />
+              </Link>
+              <Image
+                src="/instagram.svg"
+                alt="instagram"
+                width={20}
+                height={20}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Navbar */}
+        <div className="xl:hidden h-[70px] flex justify-between items-center w-full p-4">
+          {/* Logo */}
+          <div className="text-2xl font-extrabold mt-1.5 text-white">
+            <Link href="/" className={myFont.className}>
+              Premiere Sparkle Saloon
+            </Link>
+          </div>
+
+          {/* Hamburger Icon */}
+          <button onClick={togglenNav}>
+            {isClicked ? (
+              <span className="stroke-current text-white">
+                <svg
+                  className="h-8 w-8"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </span>
+            ) : (
+              <span className="stroke-current text-white">
+                <svg
+                  className="h-8 w-8"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16m-7 6h7"
+                  />
+                </svg>
+              </span>
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isClicked && (
+          <div className="xl:hidden">
+            <div className="h-[350px] bg-mypurple text-white font-family:inter p-4 space-y-5 text-[12px]">
+              {/* Logo (Mobile version, Black-colored) */}
+
+              {/* Search Input */}
+              <div className="w-[200px] h-[40px] flex items-center space-x-2">
+                <InputSearch />
+              </div>
+
+              {/* Mobile Links */}
+              {["/", "/works", "/packagess", "/about", "/location"].map(
+                (link, index) => (
+                  <div key={index}>
+                    <Link
+                      href={link}
+                      className={`hover:text-mygold ${
+                        router.pathname === link ? "text-mygold" : ""
+                      } capitalize`}>
+                      {link === "/"
+                        ? "Home"
+                        : link.replace("/", "").replace(/s$/, "")}
+                    </Link>
+                  </div>
+                )
+              )}
+
+              {/* Social Icons */}
+              <div className="flex justify-start space-x-2">
                 <Image
                   src="/facebook.svg"
                   alt="facebook"
                   width={20}
                   height={20}
                 />
-              </div>
-              <Link
-                target="_blank"
-                href="https://www.instagram.com/ys.asante/"
-                className="m-0.5">
-                <Image src="/x.svg" alt="twitter" width={20} height={20} />
-              </Link>
-              <div className=" m-0.5">
+                <Link
+                  target="_blank"
+                  href="https://www.instagram.com/ys.asante/">
+                  <Image src="/x.svg" alt="twitter" width={20} height={20} />
+                </Link>
                 <Image
                   src="/instagram.svg"
                   alt="instagram"
                   width={20}
                   height={20}
                 />
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* mobile nav */}
-        <div>
-          <div className="h-[70px] flex justify-end items-center w-full  xl:hidden ">
-            <button onClick={togglenNav} className=" ">
-              <div className="mr-8">
-                {isClicked ? (
-                  <span className="stroke-curent text-white">
-                    <svg
-                      className="h-8 w-8"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </span>
-                ) : (
-                  <span className="stroke-curent text-white">
-                    <svg
-                      className="h-8 w-8"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4 6h16M4 12h16m-7 6h7"
-                      />
-                    </svg>
-                  </span>
-                )}
-              </div>
-            </button>
-          </div>
-        </div>
-        {isClicked && (
-          <div className="  xl:hidden">
-            <div className="  h-[350px] space-y-5 bg-mypurple text-white font-family:inter p-2 text-[12px]  xl:text-[14px] ">
-              <div className=" block">
-                <div className="text-xl  font-extrabold :xl:text-[12px]">
-                  Premiere Sparkle Saloon
-                </div>
-              </div>
-              <div className=" block">
-                <div className=" w-[200px] h-[40px] flex justify-start items-center">
-                  <InputSearch />
-                </div>
-              </div>
-              <div className=" space-y-2">
-                <div>
-                  <Link
-                    className={router.pathname === "/" ? "active" : ""}
-                    href="/"
-                    // className="hover:text-mygold"
-                  >
-                    Home
-                  </Link>
-                </div>
-                <div>
-                  <Link href="/works" className="hover:text-mygold">
-                    Our Services
-                  </Link>
-                </div>
-                <div>
-                  <Link href="/packagess" className="hover:text-mygold">
-                    Packages
-                  </Link>
-                </div>
-                {/* <div>
-                  <Link href="/product" className="hover:text-mygold">
-                    Products
-                  </Link>
-                </div> */}
-                <div>
-                  <Link href="/about" className="hover:text-mygold">
-                    About Us
-                  </Link>
-                </div>
-                <div>
-                  <Link href="/location" className="hover:text-mygold">
-                    Our Location
-                  </Link>
-                </div>
-              </div>
-
-              <div className=" flex justify-start ">
-                <div className="block">
-                  <Image
-                    src="/facebook.svg"
-                    alt="facebook"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-                <div className="m-0.5">
-                  <Image src="/x.svg" alt="twitter" width={20} height={20} />
-                </div>
-                <div className=" m-0.5">
-                  <Image
-                    src="/instagram.svg"
-                    alt="instagram"
-                    width={20}
-                    height={20}
-                  />
-                </div>
               </div>
             </div>
           </div>

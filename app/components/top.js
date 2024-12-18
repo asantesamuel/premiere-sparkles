@@ -2,7 +2,7 @@
 const top = () => {
   return (
     <div className="topbar">
-      <main className="  h-[70px] bg-black  text-mygold font-family:inter flex justify-center items-center text-[7px] md:text-[12px] ">
+      <main className="  h-[70px] bg-black  text-mygold font-family:inter flex justify-center items-center text-[10px] md:text-[12px] ">
         <div className="flex  justify-center h-full items-center">
           <div className="flex items-center justify-between h-full -ml-3">
             <div className="m-1">

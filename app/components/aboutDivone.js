@@ -13,16 +13,16 @@ const aboutDivone = () => {
         <Image src={"/about.JPG"} width={400} height={400} alt="About Image" />
       </div>
       <div className="flex flex-col justify-center lg:items-start items-center ">
-        <h1 className="lg:text-8xl text-4xl font-bold mb-[40px]">
+        <h1 className=" text-center w-auto md:text-left lg:text-8xl text-4xl font-bold mb-[40px]">
           <div className={myFont.className}> Embracing Individuality</div>
         </h1>
-        <p className="text-md font-regular text-center lg:text-left lg:w-[500px] mb-4">
+        <h1 className="text-md font-regular text-center lg:text-left lg:w-[500px] mb-4">
           At Premier Sparkle, we celebrate individuality, self-expression, and
           empowerment. True beauty comes from within, and we provide a safe,
           inclusive, and supportive space for self-discovery. Whether it’s for a
           special occasion, a music video shoot, or a personal refresh, we help
           you embrace your unique features and feel your absolute best.
-        </p>
+        </h1>
       </div>
     </div>
   );
