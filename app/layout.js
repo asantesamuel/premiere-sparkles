@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
           <Top />
           <Nav />
         </div>
-        <div className="pt-[140px] z-0 animate-appear">{children}</div>
+        <div className="pt-[140px] z-0 ">{children}</div>
         <div className="z-998">
           {" "}
           <Footer />

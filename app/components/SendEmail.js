@@ -20,7 +20,6 @@ const SendEmail = () => {
     }
 
     setError(""); // Clear any previous error messages
-
     emailjs
       .sendForm(
         "service_79or3y8",
@@ -31,7 +30,11 @@ const SendEmail = () => {
       .then(
         () => {
           console.log("SUCCESS!");
-          form.current.reset(); // Clear the form
+          if (form.current) {
+            form.current.reset(); // Clear the form safely
+          } else {
+            console.error("form.current is undefined");
+          }
         },
         (error) => {
           console.log("FAILED...", error.text);
@@ -90,3 +93,15 @@ const SendEmail = () => {
 };
 
 export default SendEmail;
+
+
+
+
+
+
+
+
+
+
+
+
