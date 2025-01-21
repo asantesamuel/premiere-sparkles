@@ -20,8 +20,8 @@
     "next": "15.0.2",
     "nodemailer": "^6.9.16",
     "payload": "^3.0.1",
-    "react": "19.0.0-rc-02c0e824-20241028",
-    "react-dom": "19.0.0-rc-02c0e824-20241028",
+    "react": "19.0.0-rc.0",
+    "react-dom": "19.0.0-rc.0",
     "sharp": "^0.33.5"
   },
   "devDependencies": {
