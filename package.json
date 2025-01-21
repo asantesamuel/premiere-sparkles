@@ -12,7 +12,7 @@
     "@emailjs/browser": "^4.4.1",
     "@firebasegen/default-connector": "file:dataconnect-generated\\js\\default-connector",
     "@payloadcms/next": "^3.18.0",
-    "@payloadcms/richtext-lexical": "^3.0.1",
+    "@payloadcms/richtext-lexical": "^3.18.0",
     "@react-google-maps/api": "^2.20.3",
     "@types/google.maps": "^3.58.1",
     "firebase-admin": "^13.0.1",
