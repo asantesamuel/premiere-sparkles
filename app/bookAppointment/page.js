@@ -93,10 +93,10 @@ const Page = () => {
 
       // Send email
       const result = await emailjs.sendForm(
-        "service_3lr3l6n",
-        "template_bziospm",
+        "service_c8qe6xm",
+        "template_tsyhhw6",
         form.current,
-        "L3Slz3aF4ASXpSdtQ"
+        "TGKYRWwVPKiN6MS2L"
       );
 
       if (result.text === "OK") {

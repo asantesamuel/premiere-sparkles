@@ -22,10 +22,10 @@ const SendEmail = () => {
     setError(""); // Clear any previous error messages
     emailjs
       .sendForm(
-        "service_79or3y8",
-        "template_0x6gp5o",
+        "service_w55qc4n",
+        "template_3uhugn9",
         form.current,
-        "L3Slz3aF4ASXpSdtQ"
+        "TGKYRWwVPKiN6MS2L"
       )
       .then(
         () => {
@@ -93,15 +93,3 @@ const SendEmail = () => {
 };
 
 export default SendEmail;
-
-
-
-
-
-
-
-
-
-
-
-
