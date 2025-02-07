@@ -50,7 +50,7 @@ const Footer = () => {
               Book an appointment with us
             </h1>
             <p className="text-gray-700 text-sm md:text-base">
-              Dzorwulu Ebony Junction, North Legon Opposite Papa’s Pizza
+              North Legon Deer Street
             </p>
           </div>
 
@@ -70,7 +70,7 @@ const Footer = () => {
               <Link href="/about" className="hover:text-mypurple">
                 About Us
               </Link>
-              <Link href="/locations" className="hover:text-mypurple">
+              <Link href="/location" className="hover:text-mypurple">
                 Our Location
               </Link>
             </div>

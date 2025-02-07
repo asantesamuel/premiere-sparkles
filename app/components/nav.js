@@ -47,7 +47,7 @@ const Nav = () => {
 
             {/* Navigation Links */}
             <div className="flex justify-between col-span-4 mt-3">
-              {["/", "/works", "/packagess", "/about", "/location"].map(
+              {["/", "/works", "/packages", "/about", "/location"].map(
                 (link, index) => (
                   <div key={index}>
                     <Link
