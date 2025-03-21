@@ -149,7 +149,7 @@ const Nav = () => {
               </div>
 
               {/* Mobile Links */}
-              {["/", "/works", "/packagess", "/about", "/location"].map(
+              {["/", "/works", "/packages", "/about", "/location"].map(
                 (link, index) => (
                   <div key={index}>
                     <Link
