@@ -149,6 +149,7 @@ const Nav = () => {
               </div>
 
               {/* Mobile Links */}
+              {/* the package link*/}
               {["/", "/works", "/packages", "/about", "/location"].map(
                 (link, index) => (
                   <div key={index}>
