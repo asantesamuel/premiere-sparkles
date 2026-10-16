@@ -19,7 +19,7 @@ const aboutDivtwo = () => {
           </div>
           <div className="text-md font-regular text-center lg:text-left lg:w-[500px] mb-4">
             Founded with a passion for artistry and a commitment to excellence,
-            Premier Sparkle has built a reputation as a trusted name in the
+            Premiere Sparkles Salon has built a reputation as a trusted name in the
             beauty industry. With years of experience, we deliver personalized,
             high-quality beauty services that cater to your needs, ensuring you
             always leave feeling radiant and confident.

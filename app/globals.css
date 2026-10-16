@@ -1,43 +1,162 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Monsieur+La+Doulaise&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* styles/globals.css */
-input::placeholder,
-textarea::placeholder {
-  color: #5e5e5e; /* Change this to your desired color */
-  opacity: 1; /* Optional: Make the placeholder fully opaque */
+:root {
+  color-scheme: light;
+  --salon-plum: #321d32;
+  --salon-purple: #8e1a91;
+  --salon-gold: #bd9a47;
+  --salon-cream: #fbf8ef;
 }
 
-.search-input::placeholder {
-  color: #ffffff; /* Change this to your desired color */
-  opacity: 1; /* Optional: Make the placeholder fully opaque */
-}
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-.navbar, .topbar {
-    width: 100%;
+
+html {
+  scroll-behavior: smooth;
+  background: var(--salon-cream);
 }
 
-@layer base {
-  html {
-    --font-family-sans: "Inter", sans-serif;
+body {
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background: var(--salon-cream);
+  color: #302631;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #746b74;
+  opacity: 1;
+}
+
+.navbar,
+.topbar {
+  width: 100%;
+}
+
+.salon-eyebrow {
+  color: #8b6828;
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.salon-button,
+.salon-interactive,
+.salon-text-link,
+.salon-nav-link,
+a,
+button {
+  transition-property: color, background-color, border-color, box-shadow, opacity, transform;
+  transition-duration: 180ms;
+  transition-timing-function: ease-out;
+}
+
+.salon-button {
+  border-radius: 2px;
+}
+
+.salon-text-link:hover span {
+  transform: translateX(4px);
+}
+
+.salon-nav-link::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: var(--salon-gold);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease-out;
+}
+
+.salon-nav-link:hover::after,
+.salon-nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.salon-menu {
+  animation: salon-menu 180ms ease-out both;
+}
+
+.salon-reveal {
+  animation: salon-reveal 560ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.salon-feedback {
+  animation: salon-feedback 220ms ease-out both;
+}
+
+.salon-card {
+  transition: transform 260ms ease-out, box-shadow 260ms ease-out;
+}
+
+.salon-card-image {
+  transition: transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.search-input::placeholder {
+  color: #786b78;
+  opacity: 1;
+}
+
+:focus-visible {
+  outline: 2px solid var(--salon-purple);
+  outline-offset: 3px;
+}
+
+@keyframes salon-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-.active {
-  @apply text-black;
+
+@keyframes salon-menu {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes salon-feedback {
+  from { opacity: 0.7; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .salon-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 38px rgb(35 14 43 / 12%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

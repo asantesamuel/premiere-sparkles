@@ -17,7 +17,7 @@ const aboutDivone = () => {
           <div className={myFont.className}> Embracing Individuality</div>
         </h1>
         <h1 className="text-md font-regular text-center lg:text-left lg:w-[500px] mb-4">
-          At Premier Sparkle, we celebrate individuality, self-expression, and
+          At Premiere Sparkles Salon, we celebrate individuality, self-expression, and
           empowerment. True beauty comes from within, and we provide a safe,
           inclusive, and supportive space for self-discovery. Whether it’s for a
           special occasion, a music video shoot, or a personal refresh, we help
