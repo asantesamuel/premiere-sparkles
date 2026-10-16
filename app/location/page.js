@@ -1,89 +1,63 @@
-import React from "react";
 import BackButton from "../components/backButton";
 import Map from "../components/maps";
 import Image from "next/image";
 import Link from "next/link";
+import localFont from "next/font/local";
 
-const page = () => {
-  return (
-    <div>
-      <BackButton />
-      <div className="w-full h-[100px] flex justify-center items-center">
-        <h1 className="text-[28px] md:text-[40px] xl:text-[60px] text-center font-bold">
-          Our Locations
-        </h1>
+const displayFont = localFont({
+  src: "../static-fonts/PlayfairDisplay-VariableFont_wght.ttf",
+  display: "swap",
+});
+
+const details = [
+  { icon: "/alarm.svg", alt: "Opening hours", text: "Mondays to Saturdays 9am-8pm" },
+  { icon: "/map.svg", alt: "Address", text: "Deer Street 7, North Legon" },
+];
+
+const Page = () => (
+  <div className="bg-[#fbf8ef]">
+    <section className="bg-[#321d32] px-5 py-10 text-white sm:px-10 sm:py-14 lg:px-16">
+      <div className="mx-auto max-w-[1280px]">
+        <BackButton light />
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#ffec9e]">Visit Premiere Sparkles Salon</p>
+        <h1 className={`${displayFont.className} mt-3 text-5xl sm:text-6xl`}>Our location</h1>
+        <p className="mt-3 text-base text-white/75">North Legon, Accra, Ghana</p>
       </div>
+    </section>
 
-      <div className="flex justify-center items-center w-full p-6 md:p-10">
-        <div className="bg-mylightpurple flex flex-col w-full max-w-[300px] md:max-w-[600px] xl:max-w-[1100px] xl:grid xl:grid-cols-5">
-          {/* 1st Column */}
-          <div className="col-span-3 p-4 md:p-6 xl:p-8 space-y-4 xl:space-y-6">
-            <div className="h-auto w-full flex items-center text-md md:text-lg xl:text-2xl font-medium">
-              <h1>North Legon, Deer Street</h1>
-            </div>
-
-            <div className="space-y-4">
-              {/* Business Hours */}
-              <div className="flex items-center space-x-4">
-                <Image
-                  src="/alarm.svg"
-                  alt="opening-hours"
-                  className="w-[20px] h-[20px] md:w-[30px] md:h-[30px]"
-                  width={30}
-                  height={30}
-                />
-                <p className="text-sm md:text-base xl:text-lg">
-                  Mondays to Saturdays 9am-8pm
-                </p>
+    <section className="px-5 py-10 sm:px-10 sm:py-14 lg:px-16">
+      <div className="salon-card mx-auto grid max-w-[1280px] overflow-hidden border border-[#eadfea] bg-white shadow-[0_16px_44px_rgba(52,29,52,0.08)] lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="flex flex-col justify-center p-6 sm:p-9 lg:p-12">
+          <p className="salon-eyebrow">Come and see us</p>
+          <h2 className={`${displayFont.className} mt-3 text-3xl text-[#321d32] sm:text-4xl`}>North Legon, Deer Street</h2>
+          <div className="my-6 h-px w-16 bg-[#bd9a47]" />
+          <div className="space-y-5">
+            {details.map((detail) => (
+              <div key={detail.text} className="flex items-center gap-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#f5edf5]">
+                  <Image src={detail.icon} alt="" aria-hidden="true" width={24} height={24} />
+                </span>
+                <p className="text-sm leading-6 text-[#504551] sm:text-base">{detail.text}</p>
               </div>
-
-              {/* Address */}
-              <div className="flex items-center space-x-4">
-                <Image
-                  src="/map.svg"
-                  alt="map-icon"
-                  className="w-[20px] h-[20px] md:w-[30px] md:h-[30px]"
-                  width={30}
-                  height={30}
-                />
-                <p className="text-sm md:text-base xl:text-lg">
-                  Deer Street 7, North Legon
-                </p>
-              </div>
-
-              {/* Contact Numbers */}
-              <div className="flex items-center space-x-4">
-                <Image
-                  src="/phone.svg"
-                  alt="phone-icon"
-                  className="w-[20px] h-[20px] md:w-[30px] md:h-[30px]"
-                  width={30}
-                  height={30}
-                />
-                <p className="text-sm md:text-base xl:text-lg">
-                  +233 547873650 || +233 503192450
-                </p>
-              </div>
-
-              {/* Book a Service Button */}
-              <div className="flex justify-center md:justify-start">
-                <Link
-                  href="/bookAppointment"
-                  className="bg-mypurple text-white px-6 py-2 md:px-8 md:py-3 text-sm md:text-base xl:text-lg ">
-                  Book a Service
-                </Link>
+            ))}
+            <div className="flex items-center gap-4">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#f5edf5]">
+                <Image src="/phone.svg" alt="" aria-hidden="true" width={24} height={24} />
+              </span>
+              <div className="flex flex-col gap-1 text-sm sm:text-base">
+                <a href="tel:+233547873650" className="font-medium text-[#6f1972] hover:underline">+233 54 787 3650</a>
+                <a href="tel:+233503192450" className="font-medium text-[#6f1972] hover:underline">+233 50 319 2450</a>
               </div>
             </div>
           </div>
-
-          {/* 2nd Column */}
-          <div className="col-span-2 ">
-            <Map />
-          </div>
+          <Link href="/bookAppointment" className="salon-button mt-8 inline-flex min-h-12 w-full items-center justify-center bg-[#8e1a91] px-6 text-sm font-semibold uppercase tracking-[0.08em] text-white hover:bg-[#6d146f] sm:w-fit">Book a service <span className="ml-2" aria-hidden="true">↗</span></Link>
+        </div>
+        <div className="min-h-[320px] bg-[#eee8ee] sm:min-h-[420px] lg:min-h-[520px]">
+          <Map />
         </div>
       </div>
-    </div>
-  );
-};
+    </section>
+  </div>
+);
 
-export default page;
+export default Page;

@@ -1,192 +1,99 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 import InputSearch from "./InputSearch";
 import localFont from "next/font/local";
+import socialLinks from "../data/socialLinks";
 
-// Font files can be colocated inside of `app`
-const myFont = localFont({
+const displayFont = localFont({
   src: "../static-fonts/PlayfairDisplay-VariableFont_wght.ttf",
   display: "swap",
 });
 
-const Nav = () => {
-  const [isClicked, setIsClicked] = useState(false);
-  const [mounted, setMounted] = useState(false); // Added to handle client-side only logic
+const routes = [
+  ["/", "Home"],
+  ["/works", "Services"],
+  ["/packages", "Packages"],
+  ["/about", "About"],
+  ["/location", "Location"],
+];
 
-  useEffect(() => {
-    // Set the component as mounted to prevent rendering on the server
-    setMounted(true);
-  }, []);
-
-  const togglenNav = () => {
-    setIsClicked(!isClicked);
-  };
-
-  const router = useRouter();
-  const pathname = usePathname();
-
-  if (!mounted) return null; // Prevents rendering before the component is mounted on the client-side
+function SocialIcons({ compact = false }) {
+  const configuredSocialLinks = socialLinks.filter((social) => social.href);
+  if (configuredSocialLinks.length === 0) return null;
 
   return (
-    <div className="navbar">
-      <nav className="bg-mypurple">
-        {/* Desktop Navbar */}
-        <div className="hidden xl:block w-full h-[70px]">
-          <div className="grid grid-cols-12 text-white gap-8 p-2 xl:text-[14px]">
-            {/* Logo */}
-            <div className="col-span-4 flex-shrink-0">
-              <div className="text-2xl font-extrabold mt-1.5">
-                <Link href="/" className={myFont.className}>
-                  Premiere Sparkle Saloon
-                </Link>
-              </div>
-            </div>
+    <div className={`flex items-center ${compact ? "gap-4" : "gap-3"}`}>
+      {configuredSocialLinks.map((social) => {
+        const icon = <Image src={social.headerIcon} alt="" width={18} height={18} aria-hidden="true" />;
+        return (
+          <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={social.label} className="rounded-sm bg-[#321d32] p-1.5 text-white transition hover:bg-[#6d146f] hover:text-[#ffec9e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#ffec9e]">{icon}</a>
+        );
+      })}
+    </div>
+  );
+}
 
-            {/* Navigation Links */}
-            <div className="flex justify-between col-span-4 mt-3">
-              {["/", "/works", "/packages", "/about", "/location"].map(
-                (link, index) => (
-                  <div key={index}>
-                    <Link
-                      href={link}
-                      className={`link ${
-                        pathname === link ? "text-mygold" : ""
-                      } hover:text-mygold capitalize`}>
-                      {link === "/"
-                        ? "Home"
-                        : link.replace("/", "").replace(/s$/, "")}
-                    </Link>
-                  </div>
-                )
-              )}
-            </div>
+const Nav = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
-            {/* Search Input */}
-            <div className="col-span-3 flex justify-center items-center">
-              <InputSearch />
-            </div>
+  const closeMenu = () => setIsOpen(false);
 
-            {/* Social Icons */}
-            <div className="col-span-1 flex justify-center items-center space-x-2">
-              <Image
-                src="/facebook.svg"
-                alt="facebook"
-                width={20}
-                height={20}
-              />
-              <Link target="_blank" href="https://www.instagram.com/ys.asante/">
-                <Image src="/x.svg" alt="twitter" width={20} height={20} />
+  return (
+    <div className="navbar border-b border-[#e9dfea] bg-[#fffdf8]/95 shadow-[0_8px_24px_rgba(43,24,44,0.08)] backdrop-blur-md">
+      <nav aria-label="Main navigation" className="mx-auto max-w-[1600px] px-4 sm:px-7 lg:px-10">
+        <div className="flex h-[74px] items-center justify-between gap-3">
+          <Link href="/" onClick={closeMenu} className="flex min-w-0 items-center gap-3" aria-label="Premiere Sparkles Salon home">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#bd9a47] text-lg text-[#7a267d]" aria-hidden="true">✦</span>
+            <span className={`${displayFont.className} flex min-w-0 flex-col leading-none text-[#321d32]`}>
+              <span className="truncate text-[17px] font-semibold sm:text-xl">Premiere Sparkles</span>
+              <span className="mt-1 text-[9px] font-sans font-medium uppercase tracking-[0.3em] text-[#8e6d33]">Salon</span>
+            </span>
+          </Link>
+
+          <div className="hidden items-center gap-7 xl:flex">
+            {routes.map(([href, label]) => (
+              <Link key={href} href={href} aria-current={pathname === href ? "page" : undefined} className={`salon-nav-link relative py-2 text-[13px] font-medium uppercase tracking-[0.09em] ${pathname === href ? "text-[#84168a]" : "text-[#453744] hover:text-[#84168a]"}`}>
+                {label}
               </Link>
-              <Image
-                src="/instagram.svg"
-                alt="instagram"
-                width={20}
-                height={20}
-              />
-            </div>
+            ))}
           </div>
-        </div>
 
-        {/* Mobile Navbar */}
-        <div className="xl:hidden h-[70px] flex justify-between items-center w-full p-4">
-          {/* Logo */}
-          <div className="text-2xl font-extrabold mt-1.5 text-white">
-            <Link href="/" className={myFont.className}>
-              Premiere Sparkle Saloon
+          <div className="hidden items-center gap-4 xl:flex">
+            <div className="w-[180px]"><InputSearch /></div>
+            <SocialIcons />
+            <Link href="/bookAppointment" className="salon-button inline-flex h-11 items-center justify-center bg-[#8e1a91] px-5 text-xs font-semibold uppercase tracking-[0.08em] text-white shadow-sm hover:bg-[#6d146f]">
+              Book now <span className="ml-2 text-base" aria-hidden="true">↗</span>
             </Link>
           </div>
 
-          {/* Hamburger Icon */}
-          <button onClick={togglenNav}>
-            {isClicked ? (
-              <span className="stroke-current text-white">
-                <svg
-                  className="h-8 w-8"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </span>
-            ) : (
-              <span className="stroke-current text-white">
-                <svg
-                  className="h-8 w-8"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16m-7 6h7"
-                  />
-                </svg>
-              </span>
-            )}
-          </button>
+          <div className="flex items-center gap-2 xl:hidden">
+            <Link href="/bookAppointment" className="salon-button inline-flex h-10 items-center justify-center bg-[#8e1a91] px-3 text-[10px] font-semibold uppercase tracking-[0.06em] text-white sm:px-4 sm:text-xs">Book now</Link>
+            <button type="button" onClick={() => setIsOpen((open) => !open)} aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"} aria-expanded={isOpen} aria-controls="mobile-navigation" className="flex h-10 w-10 items-center justify-center text-[#321d32] hover:bg-[#f5edf5]">
+              {isOpen ? (
+                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" strokeWidth="1.7" strokeLinecap="round" /></svg>
+              ) : (
+                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" strokeWidth="1.7" strokeLinecap="round" /></svg>
+              )}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isClicked && (
-          <div className="xl:hidden">
-            <div className="h-[350px] bg-mypurple text-white font-family:inter p-4 space-y-5 text-[12px]">
-              {/* Logo (Mobile version, Black-colored) */}
-
-              {/* Search Input */}
-              <div className="w-[200px] h-[40px] flex items-center space-x-2">
-                <InputSearch />
-              </div>
-
-              {/* Mobile Links */}
-              {/* the package link*/}
-              {["/", "/works", "/packages", "/about", "/location"].map(
-                (link, index) => (
-                  <div key={index}>
-                    <Link
-                      href={link}
-                      className={`hover:text-mygold ${
-                        router.pathname === link ? "text-mygold" : ""
-                      } capitalize`}>
-                      {link === "/"
-                        ? "Home"
-                        : link.replace("/", "").replace(/s$/, "")}
-                    </Link>
-                  </div>
-                )
-              )}
-
-              {/* Social Icons */}
-              <div className="flex justify-start space-x-2">
-                <Image
-                  src="/facebook.svg"
-                  alt="facebook"
-                  width={20}
-                  height={20}
-                />
-                <Link
-                  target="_blank"
-                  href="https://www.instagram.com/ys.asante/">
-                  <Image src="/x.svg" alt="twitter" width={20} height={20} />
+        {isOpen && (
+          <div id="mobile-navigation" className="salon-menu border-t border-[#e9dfea] pb-5 pt-3 xl:hidden">
+            <div className="mb-4"><InputSearch /></div>
+            <div className="grid grid-cols-2 gap-1 sm:grid-cols-3">
+              {routes.map(([href, label]) => (
+                <Link key={href} href={href} onClick={closeMenu} aria-current={pathname === href ? "page" : undefined} className={`rounded px-3 py-3 text-sm font-medium ${pathname === href ? "bg-[#f5edf5] text-[#84168a]" : "text-[#453744] hover:bg-[#f5edf5] hover:text-[#84168a]"}`}>
+                  {label}
                 </Link>
-                <Image
-                  src="/instagram.svg"
-                  alt="instagram"
-                  width={20}
-                  height={20}
-                />
-              </div>
+              ))}
             </div>
+            <div className="mt-4 border-t border-[#e9dfea] pt-4"><SocialIcons compact /></div>
           </div>
         )}
       </nav>

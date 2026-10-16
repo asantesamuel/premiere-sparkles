@@ -29,10 +29,10 @@ const InputSearch = () => {
     { name: "bridal", url: "/works" },
     { name: "brow", url: "/works" },
     { name: "trimming", url: "/works" },
-    { name: "Packages", url: "/packagess" },
-    { name: "special", url: "/packagess" },
-    { name: "makeup", url: "/packagess" },
-    { name: "cost", url: "/packagess" },
+    { name: "Packages", url: "/packages" },
+    { name: "special", url: "/packages" },
+    { name: "makeup", url: "/packages" },
+    { name: "cost", url: "/packages" },
     { name: "About Us", url: "/about" },
     { name: "Team", url: "/about" },
     { name: "about", url: "/about" },
@@ -63,8 +63,8 @@ const InputSearch = () => {
 
   return (
     <div>
-      <div className=" flex   justify-center  items-center border-2 border-white  p-2 h-[50px]">
-        <span className="fill-white stroke-current text-white  ">
+      <div className="relative flex h-10 w-full items-center justify-center border border-[#d8c8d8] bg-white/70 px-2">
+        <span className="fill-[#775b77] stroke-current text-[#775b77]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -83,17 +83,19 @@ const InputSearch = () => {
           onChange={handleSearch}
           placeholder="search"
           aria-label="search"
-          className="search-input w-[200px] bg-transparent rounded-none p-2 h-[70px]border-none  outline-none  "
+          className="search-input h-full min-w-0 w-full bg-transparent p-2 text-sm text-[#302631] outline-none"
         />
       </div>
       {results.length > 0 && (
-        <ul className="absolute bg-white border mt-2 w-[300px] max-h-60 overflow-y-auto">
-          {results.map((result) => (
+        <ul className="absolute left-0 z-50 mt-2 max-h-60 w-full min-w-[220px] overflow-y-auto border border-[#e5dce5] bg-white shadow-lg">
+          {results.map((result, index) => (
             <li
-              key={result.url}
-              onClick={() => handleResultClick(result.url)}
-              className="p-2 text-black hover:bg-gray-200 cursor-pointer w-full">
-              {result.name}
+              key={`${result.url}-${index}`}
+              className="w-full text-black"
+            >
+              <button type="button" onClick={() => handleResultClick(result.url)} className="w-full px-3 py-2 text-left hover:bg-[#f5edf5]">
+                {result.name}
+              </button>
             </li>
           ))}
         </ul>

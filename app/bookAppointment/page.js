@@ -2,6 +2,29 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import BackButton from "../components/backButton";
+import localFont from "next/font/local";
+
+const displayFont = localFont({
+  src: "../static-fonts/PlayfairDisplay-VariableFont_wght.ttf",
+  display: "swap",
+});
+
+const normalizePhoneNumber = (value) => {
+  const trimmed = value.trim();
+  if (!/^\+?[\d\s().-]+$/.test(trimmed)) return null;
+
+  const digits = trimmed.replace(/\D/g, "");
+  if (digits.length < 7 || digits.length > 15) return null;
+
+  return `${trimmed.startsWith("+") ? "+" : ""}${digits}`;
+};
+
+const isWithinBusinessHours = (value) => {
+  if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(value)) return false;
+
+  const [hours, minutes] = value.split(":").map(Number);
+  return hours >= 9 && (hours < 20 || (hours === 20 && minutes === 0));
+};
 
 const Page = () => {
   const form = useRef();
@@ -19,7 +42,7 @@ const Page = () => {
     if (!/^\S+@\S+\.\S+$/.test(formData.email))
       errors.push("Invalid email format");
     if (!formData.phoneNumber.trim()) errors.push("Phone number is required");
-    if (!/^\d{10,}$/.test(formData.phoneNumber))
+    else if (!normalizePhoneNumber(formData.phoneNumber))
       errors.push("Invalid phone number");
     if (!formData.service.trim()) errors.push("Service is required");
     if (!formData.dateInput) errors.push("Date is required");
@@ -27,11 +50,8 @@ const Page = () => {
     if (!formData.choice) errors.push("Please select service type");
 
     // Validate business hours (9am-8pm)
-    if (formData.time) {
-      const [hours] = formData.time.split(":");
-      if (hours < 9 || hours >= 20) {
-        errors.push("Please select a time between 9 AM and 8 PM");
-      }
+    if (formData.time && !isWithinBusinessHours(formData.time)) {
+      errors.push("Please select a time between 9 AM and 8 PM");
     }
 
     // Validate date is not in the past
@@ -74,6 +94,9 @@ const Page = () => {
       setLoading(false);
       return;
     }
+
+    formData.phoneNumber = normalizePhoneNumber(formData.phoneNumber);
+    form.current.contact_info.value = formData.phoneNumber;
 
     try {
       // Format date
@@ -120,23 +143,29 @@ const Page = () => {
   };
 
   return (
-    <div>
-      <div className="w-full min-h-screen bg-[url('/nailtech2.jpg')] bg-cover object-bottom flex flex-col justify-center items-center p-4">
-        <BackButton />
+    <div className="relative isolate min-h-[calc(100vh-114px)] overflow-hidden bg-[#241824] px-4 py-10 sm:px-8 sm:py-14">
+      <div className="absolute inset-0 -z-20 bg-[url('/nailtech2.jpg')] bg-cover bg-[center_35%] opacity-45" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#241824]/85 via-[#241824]/65 to-[#241824]/90" />
+      <div className="mx-auto w-full max-w-[980px]">
+        <BackButton light />
         <form
           ref={form}
-          className="bg-white p-6 rounded-lg shadow-lg max-w-4xl mx-auto w-full"
+          className="mx-auto w-full max-w-4xl border-t-4 border-[#bd9a47] bg-[#fffdf9] p-5 shadow-[0_28px_80px_rgba(15,8,18,0.38)] sm:p-8 lg:p-10"
           onSubmit={sendEmail}>
-          <h1 className="text-center text-3xl font-extrabold text-black mb-6">
-            Enter Booking Details
+          <p className="salon-eyebrow text-center">Premiere Sparkles Salon</p>
+          <h1 className={`${displayFont.className} mb-3 mt-2 text-center text-4xl text-[#321d32] sm:text-5xl`}>
+            Book an appointment
           </h1>
+          <p className="mx-auto mb-8 max-w-xl text-center text-sm leading-6 text-[#665d66] sm:text-base">Enter your preferred service and appointment time. We will contact you to confirm your booking.</p>
 
           {status.message && (
             <div
-              className={`mb-4 p-4 rounded ${
+              role={status.type === "error" ? "alert" : "status"}
+              aria-live={status.type === "error" ? "assertive" : "polite"}
+              className={`salon-feedback mb-5 rounded-sm border p-4 ${
                 status.type === "error"
-                  ? "bg-red-100 text-red-700"
-                  : "bg-green-100 text-green-700"
+                  ? "border-red-200 bg-red-50 text-red-800"
+                  : "border-green-200 bg-green-50 text-green-800"
               }`}>
               {status.message.split("\n").map((msg, i) => (
                 <div key={i}>{msg}</div>
@@ -144,27 +173,31 @@ const Page = () => {
             </div>
           )}
 
-          <div className="w-full flex flex-col sm:flex-row sm:space-x-8 sm:space-y-0 space-y-4">
-            <div className="flex flex-col space-y-6 w-full sm:w-1/2">
-              <label className="text-lg font-medium text-black">Name *</label>
+          <div className="grid w-full gap-x-8 gap-y-5 sm:grid-cols-2">
+            <div className="flex min-w-0 flex-col gap-2">
+              <label htmlFor="name" className="text-sm font-semibold text-[#3c303d]">Name *</label>
               <input
                 id="name"
                 type="text"
                 name="from_name"
                 placeholder="Your full name"
-                className="border border-gray-200 rounded outline-none bg-white p-4 w-full h-[40px] shadow-sm focus:border-purple-500"
+                autoComplete="name"
+                required
+                className="h-12 w-full rounded-sm border border-[#d9ced9] bg-white px-4 text-base text-[#302631] shadow-sm outline-none transition focus:border-[#8e1a91] focus:ring-2 focus:ring-[#8e1a91]/15"
               />
 
-              <label className="text-lg font-medium text-black">Email *</label>
+              <label htmlFor="email" className="text-sm font-semibold text-[#3c303d]">Email *</label>
               <input
                 id="email"
                 type="email"
                 placeholder="your.email@example.com"
                 name="from_email"
-                className="border border-gray-200 rounded outline-none bg-white p-4 w-full h-[40px] shadow-sm focus:border-purple-500"
+                autoComplete="email"
+                required
+                className="h-12 w-full rounded-sm border border-[#d9ced9] bg-white px-4 text-base text-[#302631] shadow-sm outline-none transition focus:border-[#8e1a91] focus:ring-2 focus:ring-[#8e1a91]/15"
               />
 
-              <label className="text-lg font-medium text-black">
+              <label htmlFor="phoneNumber" className="text-sm font-semibold text-[#3c303d]">
                 Phone Number *
               </label>
               <input
@@ -172,12 +205,15 @@ const Page = () => {
                 type="tel"
                 placeholder="Your phone number"
                 name="contact_info"
-                className="border border-gray-200 rounded outline-none bg-white p-4 w-full h-[40px] shadow-sm focus:border-purple-500"
+                autoComplete="tel"
+                inputMode="tel"
+                required
+                className="h-12 w-full rounded-sm border border-[#d9ced9] bg-white px-4 text-base text-[#302631] shadow-sm outline-none transition focus:border-[#8e1a91] focus:ring-2 focus:ring-[#8e1a91]/15"
               />
             </div>
 
-            <div className="flex flex-col space-y-6 w-full sm:w-1/2">
-              <label className="text-lg font-medium text-black">
+            <div className="flex min-w-0 flex-col gap-2">
+              <label htmlFor="service" className="text-sm font-semibold text-[#3c303d]">
                 Service *
               </label>
               <input
@@ -185,19 +221,21 @@ const Page = () => {
                 type="text"
                 placeholder="Service you're booking"
                 name="service_name"
-                className="border border-gray-200 rounded outline-none bg-white p-4 w-full h-[40px] shadow-sm focus:border-purple-500"
+                required
+                className="h-12 w-full rounded-sm border border-[#d9ced9] bg-white px-4 text-base text-[#302631] shadow-sm outline-none transition focus:border-[#8e1a91] focus:ring-2 focus:ring-[#8e1a91]/15"
               />
 
-              <label className="text-lg font-medium text-black">Date *</label>
+              <label htmlFor="appointmentDate" className="text-sm font-semibold text-[#3c303d]">Date *</label>
               <input
                 type="date"
                 name="date"
                 id="appointmentDate"
                 min={new Date().toISOString().split("T")[0]}
-                className="border border-gray-200 rounded outline-none bg-white p-4 w-full h-[40px] shadow-sm focus:border-purple-500"
+                required
+                className="h-12 w-full rounded-sm border border-[#d9ced9] bg-white px-4 text-base text-[#302631] shadow-sm outline-none transition focus:border-[#8e1a91] focus:ring-2 focus:ring-[#8e1a91]/15"
               />
 
-              <label className="text-lg font-medium text-black">
+              <label htmlFor="time" className="text-sm font-semibold text-[#3c303d]">
                 Time * (9 AM - 8 PM)
               </label>
               <input
@@ -206,39 +244,44 @@ const Page = () => {
                 id="time"
                 min="09:00"
                 max="20:00"
-                className="border border-gray-200 rounded outline-none bg-white p-4 w-full h-[40px] shadow-sm focus:border-purple-500"
+                required
+                className="h-12 w-full rounded-sm border border-[#d9ced9] bg-white px-4 text-base text-[#302631] shadow-sm outline-none transition focus:border-[#8e1a91] focus:ring-2 focus:ring-[#8e1a91]/15"
               />
             </div>
           </div>
 
-          <div className="flex items-center justify-center h-[120px] space-x-6 mt-6 w-full">
-            <div className="flex items-center space-x-2">
+          <fieldset className="mt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 border-t border-[#eee7ed] pt-6">
+            <legend className="sr-only">Service type</legend>
+            <div className="flex items-center gap-2">
               <input
+                id="walk-in-service"
                 type="radio"
                 value="Walk-in Service"
                 name="choice"
-                className="h-[20px] w-[20px] border-none outline-none"
+                required
+                className="h-5 w-5 accent-[#8e1a91]"
               />
-              <label className="text-lg font-medium">Walk-In Service</label>
+              <label htmlFor="walk-in-service" className="text-sm font-medium text-[#3c303d]">Walk-In Service</label>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center gap-2">
               <input
+                id="home-service"
                 type="radio"
                 name="choice"
                 value="Home service"
-                className="h-[20px] w-[20px] border-none outline-none"
+                className="h-5 w-5 accent-[#8e1a91]"
               />
-              <label className="text-lg font-medium">House Service</label>
+              <label htmlFor="home-service" className="text-sm font-medium text-[#3c303d]">House Service</label>
             </div>
-          </div>
+          </fieldset>
 
           <button
             type="submit"
             disabled={loading}
-            className={`w-full sm:w-[300px] h-[50px] mx-auto mt-6 flex items-center justify-center text-white rounded transition-all duration-300 ${
+            className={`salon-button mx-auto mt-8 flex h-14 w-full max-w-[340px] items-center justify-center rounded-sm font-semibold tracking-[0.08em] text-white ${
               loading
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-mypurple hover:bg-white hover:text-mypurple hover:border-2 hover:border-mypurple"
+                : "bg-[#8e1a91] hover:bg-[#6d146f]"
             }`}>
             {loading ? (
               <span className="flex items-center">

@@ -18,7 +18,7 @@ const aboutDivfour = () => {
             </div>
           </div>
           <div className="text-md font-regular text-center lg:text-left lg:w-[500px] mb-4">
-            At Premier Sparkle, beauty is personal. We listen to your needs and
+            At Premiere Sparkles Salon, beauty is personal. We listen to your needs and
             preferences, offering customized services that empower you to feel
             confident and valued. Our environment fosters relaxation,
             self-expression, and a renewed sense of self-assurance. We’re not

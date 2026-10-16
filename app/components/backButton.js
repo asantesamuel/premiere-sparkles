@@ -2,7 +2,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 
-const BackButton = () => {
+const BackButton = ({ light = false }) => {
   const router = useRouter();
 
   const handleBack = () => {
@@ -10,12 +10,16 @@ const BackButton = () => {
   };
 
   return (
-    <div className="flex justify-start items-center h-[150px] w-full pl-10">
-      {" "}
+    <div className="mb-7 flex w-full items-center">
       <button
+        type="button"
         onClick={handleBack}
-        className="px-4 py-2 w-[90] h-[40px] text-sm md:w-[200px] md:h-[60px] md:text-lg bg-mypurple text-white hover:bg-opacity-70 transition">
-        Back
+        className={`inline-flex min-h-10 items-center gap-2 border px-4 text-sm font-medium transition ${
+          light
+            ? "border-white/45 text-white hover:border-[#ffec9e] hover:text-[#ffec9e]"
+            : "border-[#7e637c]/40 text-[#4c3a4b] hover:border-[#7b217c] hover:text-[#7b217c]"
+        }`}>
+        <span aria-hidden="true">←</span> Back
       </button>
     </div>
   );
